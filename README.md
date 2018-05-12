@@ -1,27 +1,54 @@
-# ELearning
+# Welcome to NgMateral ELearning
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+## Get started with project (NPM)
 
-## Development server
+### Install NPM
+>`npm install`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Install JQuery
+>`npm install jquery --save`
 
-## Code scaffolding
+### Install Bootstrap 4.0
+>`npm install bootstrap --save`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Install PoperJS
+>`npm install popper.js --save`
 
-## Build
+## Install Angular Materal (NPM)
+Homepage: [Angular Materal](https://material.angular.io)
+### Install Angular Material and Angular CDK
+>`npm install --save @angular/material @angular/cdk`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Install Animations
+Install the `@angular/animations` module and include the `BrowserAnimationsModule` in your app
+>`npm install --save @angular/animations`
 
-## Running unit tests
+Note: `@angular/animations` uses the WebAnimation API that isn't supported by all browsers yet.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+>`import {BrowserAnimationsModule} from '@angular/platform-browser/animations';`
 
-## Running end-to-end tests
+>`@NgModule({
+  imports: [BrowserAnimationsModule],
+  ...
+})`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+>`export class PizzaPartyAppModule { }`
 
-## Further help
+### Import the component modules
+>`import {MatButtonModule, MatCheckboxModule} from '@angular/material';`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+>`@NgModule({
+  imports: [MatButtonModule, MatCheckboxModule],
+  ...
+})`
+
+>`export class PizzaPartyAppModule { }`
+
+### Include a theme
+>`@import "~@angular/material/prebuilt-themes/indigo-pink.css";`
+
+### Gesture Support
+>`npm install --save hammerjs`
+
+### Add Material Icons
+>`<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">`
