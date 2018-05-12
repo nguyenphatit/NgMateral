@@ -1,0 +1,105 @@
+<div class="container-fluid">
+  <div class="card border-info card-content">
+    <div class="card-header">
+      <h5 class="card-title font-weight-bold text-uppercase">Danh sách bộ môn</h5>
+    </div>
+    <div class="card-body">
+
+      <div class=" table-responsive">
+        <table class="table table-hover">
+          <thead class="text-center">
+            <tr>
+              <!-- <th scope="col">Mã bộ môn</th> -->
+              <th scope="col">Tên bộ môn</th>
+              <!-- <th scope="col">Giảng viên</th> -->
+              <th scope="col">Danh sách môn</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr *ngFor="let department of departments">
+              <td>{{department.departmentName}}</td>
+              <td>
+                <button class="btn btn-primary" data-toggle="modal" [attr.data-target]="['#myModal'+department.departmentId]">
+                  <i class="fas fa-align-right"></i>
+                </button>
+                <!--./ subject of department-->
+                <div class="modal fade" [attr.id]="['myModal'+department.departmentId]" role="dialog">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Bộ môn: </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead class="text-center">
+                              <tr>
+
+                                <th scope="col">Tên môn học</th>
+                                <th scope="col">Đê cương</th>
+                                <th scope="col">Cấu trúc đề thi</th>
+                              </tr>
+                            </thead>
+                            <tbody class="text-center">
+                              <tr *ngFor="let subject of department.subjects">
+
+                                <td>{{subject.subjectName}}</td>
+                                <td>
+                                  <a class="btn btn-primary" data-dismiss="modal" [routerLink]="['/chuong-muc/xem-de-cuong', subject.subjectId]">
+                                    <i class="fas fa-align-right"></i>
+                                  </a>
+                                </td>
+                                <td>
+                                  <a class="btn btn-primary" data-dismiss="modal" [routerLink]="['/cau-truc',subject.subjectId]">
+                                    <i class="fas fa-align-right"></i>
+                                  </a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--subject of department \.-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+     <hr/>
+              <div id="collapseChuong1" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                  <form class="was-validated">
+                    <div class="custom-control custom-checkbox mb-3">
+                      <input type="checkbox" class="custom-control-input" id="q1a1" required disabled="disabled">
+                      <label class="custom-control-label" for="q1a1">Hiến Pháp</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-3">
+                      <input type="checkbox" class="custom-control-input" id="q1a2" required checked="checked" disabled="disabled">
+                      <label class="custom-control-label" for="q1a2">Hiến Pháp và Luật</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-3">
+                      <input type="checkbox" class="custom-control-input" id="q1a3" required disabled="disabled">
+                      <label class="custom-control-label" for="q1a3">Luật Hiến Pháp</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-3">
+                      <input type="checkbox" class="custom-control-input" id="q1a4" required disabled="disabled">
+                      <label class="custom-control-label" for="q1a4">Luật và Chính Sách</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <hr/>  
+-->

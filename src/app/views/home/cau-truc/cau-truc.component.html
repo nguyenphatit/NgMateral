@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="card border-info card-content">
+    <div class="card-header">
+      <h5 class="card-title font-weight-bold text-uppercase">Cấu trúc đề thi - Hệ thống thông tin quản lý</h5>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered">
+        <tbody class="text-center">
+          <tr>
+            <th>Tổng số câu</th>
+            <td>Tổng số điểm hiện tại</td>
+            <td>Số câu dễ</td>
+            <td>Số câu khó</td>
+          </tr>
+          <tr>
+            <th>{{numberOfQuestion}}</th>
+            <td>{{numberOfScore}}</td>
+            <td>{{numberOfQuestionEasy}}</td>
+            <td>{{numberOfQuestion - numberOfQuestionEasy}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="text-center">
+            <tr>
+              <th scope="col">Chương</th>
+              <th scope="col">Mội dung</th>
+              <th scope="col">Độ khó</th>
+              <th scope="col">Số lượng</th>
+              <th scope="col">Tổng điểm</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr *ngFor="let strucTestDetail of strucTestDetails">
+
+              <td>{{strucTestDetail.chapter.chapterName}}</td>
+              <td>{{strucTestDetail.chapter.describe}}</td>
+              <td>{{strucTestDetail.level.levelName}}</td>
+              <td>{{strucTestDetail.numberOfQuestion}}</td>
+              <td>{{strucTestDetail.totalScore}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

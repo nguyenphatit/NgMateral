@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="card border-info card-content">
+    <div class="card-header">
+      <h5 class="card-title font-weight-bold text-uppercase">Danh sách câu hỏi</h5>
+    </div>
+    <div class="card-body">
+      <div id="accordion">
+
+        <div class="card border-primary mb-1">
+          <div class="card-header" id="headingOne">
+            <div class="mr-5 pr-5">
+              Câu 1: Quyền và nghĩa vụ của
+            </div>
+            <h5 class="text-right mb-0">
+              <span class="badge badge-pill badge-danger">Khó</span>
+              <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseChuong1" aria-expanded="true" aria-controls="collapseChuong1">
+                Đáp án
+              </button>
+            </h5>
+          </div>
+          <div id="collapseChuong1" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              <form class="was-validated">
+                <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input" id="q1a1" required disabled="disabled">
+                  <label class="custom-control-label" for="q1a1">Hiến Pháp</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input" id="q1a2" required checked="checked" disabled="disabled">
+                  <label class="custom-control-label" for="q1a2">Hiến Pháp và Luật</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input" id="q1a3" required disabled="disabled">
+                  <label class="custom-control-label" for="q1a3">Luật Hiến Pháp</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input" id="q1a4" required disabled="disabled">
+                  <label class="custom-control-label" for="q1a4">Luật và Chính Sách</label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
