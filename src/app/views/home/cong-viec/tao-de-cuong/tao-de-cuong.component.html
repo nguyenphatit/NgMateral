@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="card border-info card-content">
+    <div class="card-header">
+      <h5 class="card-title font-weight-bold text-uppercase">Danh sách câu hỏi</h5>
+    </div>
+    <div class="card-body">
+      <p class="text-right">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalThem">
+          <i class="fas fa-plus-circle"></i>
+        </button>
+      </p>
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseChuong1" aria-expanded="true" aria-controls="collapseChuong1">
+                Chương 1
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapseChuong1" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              Nội dung chương 1
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="text-right m-3">
+        <button type="submit" class="btn btn-primary">
+          Nộp bài
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalThem" tabindex="-1" role="dialog" aria-labelledby="modalThem" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thêm</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="tieu-de">
+              Tiêu đề
+            </label>
+            <input class="form-control" id="tieu-de">
+          </div>
+          <div class="form-group">
+            <label for="mo-ta">Mô tả</label>
+            <textarea class="form-control" id="mo-ta" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Xác nhận</button>
+      </div>
+    </div>
+  </div>
+</div>

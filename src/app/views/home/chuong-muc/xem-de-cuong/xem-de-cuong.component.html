@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="card border-info card-content">
+    <div class="card-header">
+      <h5 class="card-title font-weight-bold text-uppercase">Đề cương</h5>
+    </div>
+    <div class="card-body">
+      <div id="accordion">
+
+        <div class="card border-primary mb-1" *ngFor="let chapter of this.chapters">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button class="btn btn-link" data-toggle="collapse" [attr.data-target]="['#collapse'+chapter.chapterId]" aria-expanded="true"
+                [attr.aria-controls]="['collapse'+chapter.chapterId]">
+                {{chapter.chapterName}}: {{chapter.describe}}
+              </button>
+            </h5>
+          </div>
+          <div [attr.id]="['collapse'+chapter.chapterId]" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="text-right pt-3 pr-4">
+              <button class="btn btn-primary" data-toggle="modal" [attr.data-target]="['#danh-sach-cau-hoi-chapter'+chapter.chapterId]">
+                Danh sách câu hỏi
+              </button>
+            </div>
+            <div class="card-body">
+              {{chapter.describe}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngFor="let chapter  of chapters" [attr.class]="['modal fade ' +' modal'+chapter.chapterId]"
+ [attr.id]="['danh-sach-cau-hoi-chapter'+chapter.chapterId]" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Danh sách câu hỏi {{(chapter.chapterName)}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p *ngFor="let question of chapter.questions" [innerHTML]="question.content">
+          <br/>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn be-btn-dw" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

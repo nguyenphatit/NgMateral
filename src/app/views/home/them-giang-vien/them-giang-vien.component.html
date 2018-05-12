@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="font-weight-bold">Thêm giảng viên</h4>
+      Khoa Công nghệ thông tin
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Thông tin giảng viên</h5>
+      <form>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 col-left">
+            <div class="form-group">
+              <label for="bo-mon" class="font-weight-bold">Bộ môn</label>
+              <select id="bo-mon" class="form-control">
+                <option>Chọn bộ môn</option>
+                <option value="1">Hệ thống thông tin</option>
+                <option value="2">Mạng máy tính</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="last-name" class="font-weight-bold">Họ và tên đệm</label>
+              <input type="text" class="form-control" id="last-name" placeholder="Nhập họ và tên đệm">
+            </div>
+            <div class="form-group">
+              <label for="first-name" class="font-weight-bold">Tên</label>
+              <input type="text" class="form-control" id="first-name" placeholder="Nhập tên">
+            </div>
+            <div class="form-group">
+              <label for="sex" class="font-weight-bold">Giới tính</label>
+              <select id="sex" class="form-control">
+                <option>Chọn giới tính</option>
+                <option value="1">Nam</option>
+                <option value="2">Nữ</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="birthday" class="font-weight-bold">Ngày sinh</label>
+              <input type="date" class="form-control" id="birthday" placeholder="dd/mm/yyyy">
+            </div>
+            <div class="form-group">
+              <label for="email" class="font-weight-bold">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Nhập địa chỉ email">
+            </div>
+            <div class="form-group">
+              <label for="phone" class="font-weight-bold">Số điện thoại</label>
+              <input type="tel" class="form-control" id="phone" placeholder="Nhập số điện thoại">
+            </div>
+            <div class="form-group">
+              <label for="address">Địa chỉ</label>
+              <textarea class="form-control" id="address" rows="3" placeholder="Nhập địa chỉ liên hệ"></textarea>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 col-right upload-avatar text-center">
+            <div class="card">
+              <img class="card-img-top" src="../assets/images/cyberpop-zoe.jpg" alt="Card image cap">
+              <div class="card-body">
+                <div class="input-file-container">
+                  <input class="input-file" id="my-file" type="file">
+                  <label tabindex="0" for="my-file" class="input-file-trigger">
+                    <i class="fas fa-camera"></i> Cập nhật</label>
+                  <p class="file-return"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="text-right">
+          <button class="btn be-btn-blue font-weight-bold text-uppercase">Thêm giảng viên</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

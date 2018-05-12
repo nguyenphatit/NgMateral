@@ -1,0 +1,105 @@
+<div class="container-fluid">
+  <div class="card border-info card-content">
+    <div class="card-header">
+      <h5 class="card-title font-weight-bold text-uppercase">Cấu trúc đề thi - Hệ thống thông tin quản lý</h5>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered">
+        <tbody class="text-center">
+          <tr>
+            <th>Tổng số câu</th>
+            <td>Tổng số điểm hiện tại</td>
+            <td>Số câu dễ</td>
+            <td>@Số câu khó</td>
+          </tr>
+          <tr>
+            <th>32</th>
+            <td>13.0</td>
+            <td>22</td>
+            <td>10</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-right m-3" data-toggle="modal" data-target="#modal">
+      <button class="btn btn-primary">
+        <i class="fas fa-plus"></i>
+      </button>
+    </p>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="text-center">
+            <tr>
+              <th scope="col">Chương</th>
+              <th scope="col">Mội dung</th>
+              <th scope="col">Độ khó</th>
+              <th scope="col">Số lượng</th>
+              <th scope="col">Tổng điểm</th>
+              <th scope="col">Cập nhật</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr>
+              <th scope="row">Chương 1</th>
+              <td>Chapter 1</td>
+              <td>Dễ</td>
+              <td>5</td>
+              <td>2.5</td>
+              <td>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#modal">
+                  <i class="fas fa-edit"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thêm</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="chuong">Chương</label>
+            <select class="form-control" id="chuong">
+              <option>Chương 1</option>
+              <option>Chương 2</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="muc-do">Mức độ</label>
+            <select class="form-control" id="muc-do">
+              <option>Khó</option>
+              <option>Dễ</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="so-cau-hoi">Số lượng câu hỏi</label>
+            <input type="number" class="form-control" id="so-cau-hoi">
+          </div>
+          <div class="form-group">
+            <label for="tong-diem">Tổng điểm</label>
+            <input type="number" class="form-control" id="tong-diem">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Xác nhận</button>
+      </div>
+    </div>
+  </div>
+</div>
