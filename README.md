@@ -21,5 +21,3 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:81/`. The app wil
 `npm install --save @angular/animations`
 ### Gesture Support
 `npm install --save hammerjs`
-### Angular Google Map
-`npm install @agm/core --save`
