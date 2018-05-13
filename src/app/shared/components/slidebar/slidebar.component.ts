@@ -27,10 +27,10 @@ export class SlidebarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     this.getName();
     this.getRole();
   }
+
 
   getName(): void {
     this.http.get(this.config.url_port + '/teacher/info').subscribe((teacher: any) => {
