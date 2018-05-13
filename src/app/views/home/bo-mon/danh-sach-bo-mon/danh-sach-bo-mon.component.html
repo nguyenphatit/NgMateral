@@ -1,10 +1,9 @@
 <div class="container-fluid">
-  <div class="card border-info card-content">
+  <mat-card class="card card-content">
     <div class="card-header">
       <h5 class="card-title font-weight-bold text-uppercase">Danh sách bộ môn</h5>
     </div>
     <div class="card-body">
-
       <div class=" table-responsive">
         <table class="table table-hover">
           <thead class="text-center">
@@ -19,7 +18,7 @@
             <tr *ngFor="let department of departments">
               <td>{{department.departmentName}}</td>
               <td>
-                <button class="btn btn-primary" data-toggle="modal" [attr.data-target]="['#myModal'+department.departmentId]">
+                <button mat-raised-button color="primary" data-toggle="modal" [attr.data-target]="['#myModal'+department.departmentId]">
                   <i class="fas fa-align-right"></i>
                 </button>
                 <!--./ subject of department-->
@@ -48,12 +47,12 @@
 
                                 <td>{{subject.subjectName}}</td>
                                 <td>
-                                  <a class="btn btn-primary" data-dismiss="modal" [routerLink]="['/chuong-muc/xem-de-cuong', subject.subjectId]">
+                                  <a mat-raised-button color="primary" data-dismiss="modal" [routerLink]="['/chuong-muc/xem-de-cuong', subject.subjectId]">
                                     <i class="fas fa-align-right"></i>
                                   </a>
                                 </td>
                                 <td>
-                                  <a class="btn btn-primary" data-dismiss="modal" [routerLink]="['/cau-truc',subject.subjectId]">
+                                  <a mat-raised-button color="primary" data-dismiss="modal" [routerLink]="['/cau-truc',subject.subjectId]">
                                     <i class="fas fa-align-right"></i>
                                   </a>
                                 </td>
@@ -63,7 +62,7 @@
                         </div>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" mat-raised-button data-dismiss="modal">Close</button>
                       </div>
                     </div>
                   </div>
@@ -75,7 +74,7 @@
         </table>
       </div>
     </div>
-  </div>
+  </mat-card>
 </div>
 <!--
      <hr/>
@@ -101,5 +100,5 @@
                   </form>
                 </div>
               </div>
-              <hr/>  
+              <hr/>
 -->

@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="card border-info card-content">
+  <mat-card class="card card-content">
     <div class="card-header">
       <h5 class="card-title font-weight-bold text-uppercase">Công việc</h5>
     </div>
@@ -31,17 +31,17 @@
                 <span class="badge badge-pill badge-danger">27/04/2018</span>
               </td>
               <td>
-                <button class="btn btn-primary" data-toggle="modal" data-target=".xemchitiet-modal-lg">Chi tiết</button>
+                <button mat-raised-button color="primary" data-toggle="modal" data-target=".xemchitiet-modal-lg">Chi tiết</button>
               </td>
               <td>
-                <button class="btn btn-primary">Tiến hành</button>
+                <button mat-raised-button color="primary">Tiến hành</button>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-  </div>
+  </mat-card>
 </div>
 
 <div class="modal fade xemchitiet-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -115,7 +115,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" mat-raised-button data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

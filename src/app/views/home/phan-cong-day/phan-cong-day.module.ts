@@ -5,12 +5,14 @@ import { MonHocPhanCongComponent } from './mon-hoc-phan-cong/mon-hoc-phan-cong.c
 import { ChiTietMonHocComponent } from './chi-tiet-mon-hoc/chi-tiet-mon-hoc.component';
 import { BoMonPhanCongComponent } from './bo-mon-phan-cong/bo-mon-phan-cong.component';
 import { DanhSachMonHocComponent } from '../mon-hoc/danh-sach-mon-hoc/danh-sach-mon-hoc.component';
+import { MaterialModule } from '../../../material.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    PhanCongDayRoutingModule
+    PhanCongDayRoutingModule,
+    MaterialModule
   ],
   exports: [],
   declarations: [

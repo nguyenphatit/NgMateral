@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="card border-info card-content">
+  <mat-card class="card card-content">
     <div class="card-header">
       <h5 class="card-title font-weight-bold text-uppercase">Cấu trúc đề thi - Hệ thống thông tin quản lý</h5>
     </div>
@@ -10,7 +10,7 @@
             <th>Tổng số câu</th>
             <td>Tổng số điểm hiện tại</td>
             <td>Số câu dễ</td>
-            <td>@Số câu khó</td>
+            <td>Số câu khó</td>
           </tr>
           <tr>
             <th>32</th>
@@ -23,7 +23,7 @@
     </div>
 
     <p class="text-right m-3" data-toggle="modal" data-target="#modal">
-      <button class="btn btn-primary">
+      <button mat-raised-button color="primary">
         <i class="fas fa-plus"></i>
       </button>
     </p>
@@ -49,7 +49,7 @@
               <td>5</td>
               <td>2.5</td>
               <td>
-                <button class="btn btn-primary" data-toggle="modal" data-target="#modal">
+                <button mat-raised-button color="primary" data-toggle="modal" data-target="#modal">
                   <i class="fas fa-edit"></i>
                 </button>
               </td>
@@ -58,7 +58,7 @@
         </table>
       </div>
     </div>
-  </div>
+  </mat-card>
 </div>
 
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
@@ -97,8 +97,8 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Xác nhận</button>
+        <button type="button" mat-raised-button data-dismiss="modal">Close</button>
+        <button type="button" mat-raised-button color="primary">Xác nhận</button>
       </div>
     </div>
   </div>

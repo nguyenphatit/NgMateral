@@ -1,54 +1,27 @@
-# Welcome to NgMateral ELearning
+# ELearning
 
-## Get started with project (NPM)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
-### Install NPM
->`npm install`
+## Development server
 
-### Install JQuery
->`npm install jquery --save`
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-### Install Bootstrap 4.0
->`npm install bootstrap --save`
+## Code scaffolding
 
-### Install PoperJS
->`npm install popper.js --save`
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Install Angular Materal (NPM)
-Homepage: [Angular Materal](https://material.angular.io)
-### Install Angular Material and Angular CDK
->`npm install --save @angular/material @angular/cdk`
+## Build
 
-### Install Animations
-Install the `@angular/animations` module and include the `BrowserAnimationsModule` in your app
->`npm install --save @angular/animations`
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-Note: `@angular/animations` uses the WebAnimation API that isn't supported by all browsers yet.
+## Running unit tests
 
->`import {BrowserAnimationsModule} from '@angular/platform-browser/animations';`
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
->`@NgModule({
-  imports: [BrowserAnimationsModule],
-  ...
-})`
+## Running end-to-end tests
 
->`export class PizzaPartyAppModule { }`
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-### Import the component modules
->`import {MatButtonModule, MatCheckboxModule} from '@angular/material';`
+## Further help
 
->`@NgModule({
-  imports: [MatButtonModule, MatCheckboxModule],
-  ...
-})`
-
->`export class PizzaPartyAppModule { }`
-
-### Include a theme
->`@import "~@angular/material/prebuilt-themes/indigo-pink.css";`
-
-### Gesture Support
->`npm install --save hammerjs`
-
-### Add Material Icons
->`<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">`
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
