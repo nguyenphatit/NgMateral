@@ -1,3 +1,14 @@
-Đây là trang chính
+<div class="container-fluid">
+  <mat-card class="p-3 mb-3 main-title">
+    <h3>Xin chào {{ teacher?teacher?.firstName: '...' }} {{ teacher?teacher?.lastName: '...' }}</h3>
+  </mat-card>
 
-<button mat-button>Click me!</button>
+  <mat-grid-list cols="2" rowHeight="100px">
+    <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'lightblue'">
+      A
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'lightpink'">
+      B
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
