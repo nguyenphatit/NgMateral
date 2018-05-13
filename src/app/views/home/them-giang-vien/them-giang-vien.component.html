@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="card">
+  <mat-card class="card">
     <div class="card-header">
       <h4 class="font-weight-bold">Thêm giảng viên</h4>
       Khoa Công nghệ thông tin
@@ -54,21 +54,21 @@
             <div class="card">
               <img class="card-img-top" src="../assets/images/cyberpop-zoe.jpg" alt="Card image cap">
               <div class="card-body">
-                <div class="input-file-container">
+                <button type="button" mat-raised-button>
                   <input class="input-file" id="my-file" type="file">
-                  <label tabindex="0" for="my-file" class="input-file-trigger">
+                  <label tabindex="0" for="my-file" class="input-file-trigger" hidden>
                     <i class="fas fa-camera"></i> Cập nhật</label>
-                  <p class="file-return"></p>
-                </div>
+                  <!-- <p class="file-return"></p> -->
+                </button>
               </div>
             </div>
           </div>
         </div>
         <hr />
         <div class="text-right">
-          <button class="btn be-btn-blue font-weight-bold text-uppercase">Thêm giảng viên</button>
+          <button type="submit" mat-raised-button color="primary">Thêm giảng viên</button>
         </div>
       </form>
     </div>
-  </div>
+  </mat-card>
 </div>

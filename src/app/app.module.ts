@@ -2,7 +2,6 @@ import { SubjectService } from './_services/subjectService.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent, SlidebarComponent, HomeLayoutComponent } from './shared';
@@ -19,6 +18,9 @@ import { ConfigValue } from './_helpers/config-value';
 import { JwtInterceptor } from './_helpers/JwtInterceptor';
 import { TeacherService } from './_services/teacherService.service';
 import { StructureTestDetailService } from './_services/structureTestDetailService.service';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 
 const APP_COMPONENTS = [
   HeaderComponent,
@@ -43,7 +45,9 @@ const APP_CONTAINERS = [
     AppRoutingModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [
     AuthGuard,

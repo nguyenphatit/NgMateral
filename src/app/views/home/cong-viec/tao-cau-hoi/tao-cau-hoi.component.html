@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="card border-info card-content">
+  <mat-card class="card card-content">
     <div class="card-header">
       <h5 class="card-title font-weight-bold text-uppercase">Công việc tạo câu hỏi</h5>
     </div>
@@ -45,7 +45,7 @@
                         <br>
                         <span>Hoàn thành: 0</span>
                         <span class="ml-3">
-                          <button class="btn btn-primary" data-toggle="modal" data-target="#modalRow">
+                          <button mat-raised-button color="primary" data-toggle="modal" data-target="#modalRow">
                             <i class="fas fa-plus-circle"></i>
                           </button>
                         </span>
@@ -59,12 +59,12 @@
         </table>
       </div>
       <p class="text-right">
-        <button class="btn btn-primary">
+        <button mat-raised-button color="primary">
           Nộp bài
         </button>
       </p>
     </div>
-  </div>
+  </mat-card>
 </div>
 
 <div class="modal fade" id="modalRow" tabindex="-1" role="dialog" aria-labelledby="modalRow" aria-hidden="true">
@@ -91,11 +91,11 @@
           </div>
 
           <p>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseTuLuan" aria-expanded="false"
+            <button mat-raised-button color="primary" class="mr-2" type="button" data-toggle="collapse" data-target="#collapseTuLuan" aria-expanded="false"
               aria-controls="collapseTuLuan">
               Tự luận
             </button>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseTracNghiem" aria-expanded="false"
+            <button mat-raised-button color="primary" type="button" data-toggle="collapse" data-target="#collapseTracNghiem" aria-expanded="false"
               aria-controls="collapseTracNghiem">
               Trắc nghiệm
             </button>
@@ -160,8 +160,8 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Xác nhận</button>
+        <button type="button" mat-raised-button data-dismiss="modal">Close</button>
+        <button type="button" mat-raised-button color="primary">Xác nhận</button>
       </div>
     </div>
   </div>

@@ -4,12 +4,14 @@ import { DeThiRoutingModule } from './de-thi-routing.module';
 import { DanhSachDeThiComponent } from './danh-sach-de-thi/danh-sach-de-thi.component';
 import { TaoDeThiComponent } from './tao-de-thi/tao-de-thi.component';
 import { InDeThiComponent } from './in-de-thi/in-de-thi.component';
+import { MaterialModule } from '../../../material.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    DeThiRoutingModule
+    DeThiRoutingModule,
+    MaterialModule
   ],
   exports: [],
   declarations: [

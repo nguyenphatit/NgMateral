@@ -1,7 +1,8 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { ConfigValue } from './../_helpers/config-value';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class StructureTestDetailService {
@@ -9,8 +10,8 @@ export class StructureTestDetailService {
 
     }
     getListStrucBySubjectId(subjectId: number): Observable<any> {
-        return this.http.get(this.config.url_port + `/struc-test-detail/${subjectId}`).map((data: any) => {
-            return data;
-        });
+        return this.http.get(this.config.url_port + `/struc-test-detail/${subjectId}`).pipe(map((data: any) => {
+          return data;
+      }));
     }
 }

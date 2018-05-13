@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="card border-info card-content">
+  <mat-card class="card card-content">
     <div class="card-header">
       <h5 class="card-title font-weight-bold text-uppercase">Danh sách môn học</h5>
     </div>
@@ -21,19 +21,19 @@
               <td>{{subject.subjectName}}</td>
               <td>{{subject.teacherManagement.firstName+' '+subject.teacherManagement.lastName}}</td>
               <td>
-                <a class="btn btn-primary" [routerLink]="['/chuong-muc/xem-de-cuong', subject.subjectId]">
+                <button mat-raised-button color="primary" [routerLink]="['/chuong-muc/xem-de-cuong', subject.subjectId]">
                   <i class="fas fa-align-right"></i>
-                </a>
+                </button>
               </td>
               <td>
-                <a class="btn btn-primary" [routerLink]="['/cau-truc',subject.subjectId]">
+                <button mat-raised-button color="primary" [routerLink]="['/cau-truc',subject.subjectId]">
                   <i class="fas fa-align-right"></i>
-                </a>
+                </button>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-  </div>
+  </mat-card>
 </div>

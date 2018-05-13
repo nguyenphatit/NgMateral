@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-
 import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 
@@ -13,9 +12,11 @@ import { ThemBoMonComponent } from './them-bo-mon/them-bo-mon.component';
 import { ThemMonHocComponent } from './them-mon-hoc/them-mon-hoc.component';
 import { DuyetCongViecComponent } from './duyet-cong-viec/duyet-cong-viec.component';
 import { SoanCauHoiComponent } from './soan-cau-hoi/soan-cau-hoi.component';
+import { MaterialModule } from '../../material.module';
 
 @NgModule({
   imports: [
+    MaterialModule,
     CommonModule,
     HomeRoutingModule,
     HttpClientModule

@@ -1,11 +1,11 @@
 <div class="container-fluid">
-  <div class="card border-info card-content">
+  <mat-card class="card card-content">
     <div class="card-header">
       <h5 class="card-title font-weight-bold text-uppercase">Danh sách câu hỏi</h5>
     </div>
     <div class="card-body">
       <p class="text-right">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalThem">
+        <button type="button" mat-raised-button color="accent" data-toggle="modal" data-target="#modalThem">
           <i class="fas fa-plus-circle"></i>
         </button>
       </p>
@@ -30,12 +30,12 @@
         </div>
       </div>
       <p class="text-right m-3">
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" mat-raised-button color="primary">
           Nộp bài
         </button>
       </p>
     </div>
-  </div>
+  </mat-card>
 </div>
 
 <div class="modal fade" id="modalThem" tabindex="-1" role="dialog" aria-labelledby="modalThem" aria-hidden="true">
@@ -62,8 +62,8 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Xác nhận</button>
+        <button type="button" mat-raised-button data-dismiss="modal">Close</button>
+        <button type="button" mat-raised-button color="primary">Xác nhận</button>
       </div>
     </div>
   </div>

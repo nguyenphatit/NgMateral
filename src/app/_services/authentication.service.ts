@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ConfigValue } from '../_helpers/config-value';
 import { Teacher } from '../_models';
@@ -23,7 +23,7 @@ export class AuthenticationService {
     return this.http.post<any>(this.config.url_port + this.config.auth_login, {
       email: email,
       pwd: password
-    }).map(teacher => {
+    }).pipe(map(teacher => {
       //  console.log(teacher);
       if (teacher && teacher.token) {
         localStorage.setItem(
@@ -32,7 +32,7 @@ export class AuthenticationService {
         );
       }
       return teacher;
-    });
+    }));
   }
 
   // public createUser(username: string, password: string): Observable<any> {
@@ -41,31 +41,33 @@ export class AuthenticationService {
 
   refreshToken(): any {
     return this.http.get(this.config.url_port + this.config.auth_refresh)
-      .map(data => {
-        let teacher: any = {};
-        teacher = data;
-        if (teacher && teacher.access_token) {
-          localStorage.setItem(
-            this.config.token,
-            JSON.stringify(teacher.access_token)
-          );
-        }
-        return teacher;
-      },
-        (err: HttpErrorResponse) => {
-          if (err.status === 403) {
-            console.log('Chưa đăng nhập!');
+      .pipe(
+        map(data => {
+          let teacher: any = {};
+          teacher = data;
+          if (teacher && teacher.access_token) {
+            localStorage.setItem(
+              this.config.token,
+              JSON.stringify(teacher.access_token)
+            );
           }
-        }
+          return teacher;
+        },
+          (err: HttpErrorResponse) => {
+            if (err.status === 403) {
+              console.log('Chưa đăng nhập!');
+            }
+          }
+        )
       );
   }
 
   getInformation(): any {
     return this.http.get(this.config.url_port + '/teacher/info')
-      .map((teacher: Teacher) => {
+      .pipe(map((teacher: Teacher) => {
         return teacher;
       }
-      );
+      ));
   }
 
   logout(): void {

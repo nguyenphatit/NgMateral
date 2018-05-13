@@ -6,11 +6,13 @@ import { CauTrucComponent } from '../cau-truc/cau-truc.component';
 import { PhanCongCauHoiComponent } from './phan-cong-cau-hoi/phan-cong-cau-hoi.component';
 import { PhanCongDeCuongComponent } from './phan-cong-de-cuong/phan-cong-de-cuong.component';
 import { PhanCongCauTrucComponent } from './phan-cong-cau-truc/phan-cong-cau-truc.component';
+import { MaterialModule } from '../../../material.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    PhanCongRoutingModule
+    PhanCongRoutingModule,
+    MaterialModule
   ],
   exports: [],
   declarations: [
