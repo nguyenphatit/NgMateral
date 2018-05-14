@@ -1,23 +1,25 @@
 <div class="container-fluid">
-  <mat-card class="card">
-    <div class="card-header">
-      <h4 class="font-weight-bold">Danh sách bộ môn</h4>
-      Khoa Công nghệ thông tin
-    </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2 my-3">
-          <mat-card class="card card-item">
-            <img class="card-img-top" src="../assets/images/Sell-course-online.gif" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Hệ thống thông tin</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Tổng số môn học: 5</h6>
-              <h6 class="card-subtitle mb-2 text-muted">Tổng số giảng viên: 5</h6>
+  <h5 class="font-weight-bold">Danh sách bộ môn</h5>
+  Khoa Công nghệ thông tin
+  <div class="mt-5">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-5">
+        <mat-card class="mat-card-sub">
+          <mat-card-header class="card-header">
+            <mat-card-title>
+              <h5>Hệ thống thông tin</h5>
+            </mat-card-title>
+          </mat-card-header>
+          <img class="card-img-top" src="../assets/images/Sell-course-online.gif" class="img-card" alt="Card image cap">
+          <mat-card-content class="card-body">
+            <span>Tổng số môn học: <b>5</b></span><br/>
+            <span>Tổng số giảng viên: <b>5</b></span>
+          </mat-card-content>
+          <mat-card-actions class="p-3">
               <button mat-raised-button color="primary" [routerLink]="['/phan-cong-day/mon-hoc']">Chi tiết</button>
-            </div>
-          </mat-card>
-        </div>
+          </mat-card-actions>
+        </mat-card>
       </div>
     </div>
-  </mat-card>
+  </div>
 </div>

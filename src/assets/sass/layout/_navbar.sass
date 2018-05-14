@@ -6,33 +6,35 @@
 		.be-navbar-lg
 			-webkit-transition: .5s
 			transition: .5s
-			background: #ffffff
+			background: #3f51b5
 			border: none
-			box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08)
-
+			box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
 			.navbar-brand
 				font:
 					weight: bold
 					size: 3rem
-				color: #4C5154
+				color: #ffffff
 				cursor: pointer
 				-webkit-transition: .5s
 				transition: .5s
 				&:hover
-					color: #4C5154
+					color: #ffffff
 			.navbar-nav
 				.nav-item
+					.mat-raised-button:not([class*=mat-elevation-z])
+						box-shadow: none
+						border-radius: 0
 					.nav-link
 						-webkit-transition: .5s
 						transition: .5s
 						font:
 							size: 2rem
-						color: #6A6E71
+						color: #ffffff
 						padding: 1.1rem 1.5rem
 					&:hover
 						background: #F8F9FD
 						& > .nav-link
-							color: #4C5154
+							color: #ffffff
 
 					.menu-notify
 						min-width: 500px
@@ -73,25 +75,25 @@
 				font:
 					weight: bold
 					size: 2rem
-				color: #4C5154
+				color: #ffffff
 				cursor: pointer
 				-webkit-transition: .5s
 				transition: .5s
 				&:hover
-					color: #4C5154
+					color: #c6c6c6
 			.navbar-nav
 				.nav-item
 					.nav-link
 						font:
 							size: 1.2rem
-						color: #6A6E71
+						color: #ffffff
 						padding: 1.1rem 1.5rem
 						-webkit-transition: .5s
 						transition: .5s
 					&:hover
 						background: #F8F9FD
 						& > .nav-link
-							color: #4C5154
+							color: #c6c6c6
 
 	.hbe-navbar-small
 		display: none
@@ -122,18 +124,18 @@
 	.be-navbar-sm
 		display: block
 		.be-navbar
-			background: #ffffff
+			background: #3f51b5
 			box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08)
 			.navbar-brand
 				font:
 					weight: bold
 					size: 2rem
-				color: #4C5154
+				color: #ffffff
 				cursor: pointer
 				-webkit-transition: .5s
 				transition: .5s
 				&:hover
-					color: #4C5154
+					color: #ffffff
 			.navbar-collapse
 				.navbar-nav
 					.nav-item

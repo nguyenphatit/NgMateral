@@ -9,6 +9,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatGridListModule,
     MatProgressBarModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSortModule
   ],
   exports: [
     MatButtonModule,
@@ -33,7 +35,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatGridListModule,
     MatProgressBarModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSortModule
   ],
 })
 export class MaterialModule { }
