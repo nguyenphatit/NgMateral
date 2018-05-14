@@ -13,8 +13,8 @@
           </select>
         </div>
         <p class="text-right">
-          <button mat-raised-button color="accent" data-toggle="modal" data-target="#modalRow">
-            <i class="fas fa-plus-circle"></i>
+          <button mat-fab color="accent" data-toggle="modal" data-target="#modalRow">
+            <i class="fas fa-plus"></i>
           </button>
         </p>
         <h5>Tổng số câu: 5</h5>
@@ -75,7 +75,7 @@
             </select>
           </div>
 
-          <p>
+          <!-- <p>
             <button mat-raised-button color="primary" class="mr-2" type="button" data-toggle="collapse" data-target="#collapseTuLuan" aria-expanded="false"
               aria-controls="collapseTuLuan">
               Tự luận
@@ -84,16 +84,16 @@
               aria-controls="collapseTracNghiem">
               Trắc nghiệm
             </button>
-          </p>
+          </p> -->
           <!-- tự luận -->
-          <div class="collapse" id="collapseTuLuan">
+          <!-- <div class="collapse" id="collapseTuLuan">
             <div class="form-group">
               <label for="dap-an">Đáp án</label>
               <textarea class="form-control" id="dap-an" rows="3"></textarea>
             </div>
-          </div>
+          </div> -->
           <!-- trắc nghiệm -->
-          <div class="collapse" id="collapseTracNghiem">
+          <!-- <div class="collapse" id="collapseTracNghiem">
             <div class="form-group">
               <label for="so-dap-an">Số lượng đáp án</label>
               <select class="form-control" id="so-dap-an">
@@ -139,7 +139,74 @@
                 </div>
               </div>
               <input type="text" class="form-control" aria-label="Text input with checkbox">
+            </div> -->
+
+          <p>
+            <button mat-raised-button color="primary" class="mr-2" type="button" (click)="openTL()">
+              Tự luận
+            </button>
+            <button mat-raised-button color="primary" type="button" (click)="openTN()">
+              Trắc nghiệm
+            </button>
+          </p>
+
+          <!-- tự luận -->
+          <div class="" id="collapseTuLuan" [hidden]="isTL">
+            <div class="form-group">
+              <label for="dap-an">Đáp án</label>
+              <textarea class="form-control" id="dap-an" rows="3"></textarea>
             </div>
+          </div>
+          <!-- trắc nghiệm -->
+          <div class="" id="collapseTracNghiem" [hidden]="isTN">
+            <div class="form-group">
+              <label for="so-dap-an">Số lượng đáp án</label>
+              <select class="form-control" id="so-dap-an" (change)="numberQuestion(select.value)" #select>
+                <option value="0">Chọn đáp án</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+
+            <div *ngFor="let num of numAnswer">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <input type="checkbox" aria-label="Checkbox for following text input">
+                  </div>
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox">
+              </div>
+            </div>
+            <!-- <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input type="checkbox" aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input type="text" class="form-control" aria-label="Text input with checkbox">
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input type="checkbox" aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input type="text" class="form-control" aria-label="Text input with checkbox">
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input type="checkbox" aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input type="text" class="form-control" aria-label="Text input with checkbox">
+            </div> -->
 
           </div>
         </form>
