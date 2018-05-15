@@ -1,3 +1,4 @@
+import { QuestionService } from './_services/questionService.service';
 import { SubjectService } from './_services/subjectService.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -54,6 +55,7 @@ const APP_CONTAINERS = [
     ConfigValue,
     AuthenticationService,
     TeacherService,
+    QuestionService,
     SubjectService,
     StructureTestDetailService,
     BaseRequestOptions,

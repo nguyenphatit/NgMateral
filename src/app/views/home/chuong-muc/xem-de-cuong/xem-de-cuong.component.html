@@ -17,7 +17,7 @@
             </p>
           </mat-card-content>
           <mat-card-actions class="p-3">
-            <button mat-raised-button color="primary" data-toggle="modal" [attr.data-target]="['#danh-sach-cau-hoi-chapter'+chapter.chapterId]">
+            <button mat-raised-button color="primary" [routerLink]="['/cau-hoi/danh-sach-cau-hoi', chapter.chapterId]">
               Danh sách câu hỏi
             </button>
           </mat-card-actions>
@@ -27,7 +27,7 @@
   </div>
 </div>
 
-<div *ngFor="let chapter  of chapters" [attr.class]="['modal fade ' +' modal'+chapter.chapterId]" [attr.id]="['danh-sach-cau-hoi-chapter'+chapter.chapterId]"
+<!-- <div *ngFor="let chapter  of chapters" [attr.class]="['modal fade ' +' modal'+chapter.chapterId]" [attr.id]="['danh-sach-cau-hoi-chapter'+chapter.chapterId]"
   tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -38,7 +38,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p *ngFor="let question of chapter.questions" [innerHTML]="question.content">
+        <p *ngFor="let question of chapter.questions" >
           <br/>
         </p>
       </div>
@@ -47,4 +47,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
