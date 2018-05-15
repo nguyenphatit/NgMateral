@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Teacher } from '../../_models';
+import { Router } from '@angular/router';
 @Component({
   templateUrl: 'home.component.html'
 })
 
 
 export class HomeComponent implements OnInit {
-  teacher: Teacher[] = [];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
 

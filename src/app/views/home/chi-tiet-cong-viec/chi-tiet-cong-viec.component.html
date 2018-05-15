@@ -1,43 +1,35 @@
 <div class="container-fluid">
-  <mat-card class="card card-content">
-    <div class="card-header">
-      <h5 class="card-title font-weight-bold text-uppercase">Chi tiết công việc</h5>
-    </div>
-    <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-hover">
-          <thead class="text-center">
-            <tr>
-              <th scope="col">Mã công việc</th>
-              <th scope="col">Tên công việc</th>
-              <th scope="col">Ảnh đại diện</th>
-              <th scope="col">Tên giảng viên</th>
-              <th scope="col">Loại công việc</th>
-              <th scope="col">Thời gian</th>
-              <th scope="col">Chi tiết công việc</th>
-            </tr>
-          </thead>
-          <tbody class="text-center">
-            <tr>
-              <th scope="row">1</th>
-              <td>Hệ thống thông tin</td>
-              <td> </td>
-              <td>Trần Lê Như Quỳnh</td>
-              <td>Tạo câu hỏi</td>
-              <td>
-                <span class="badge badge-pill badge-success">26/04/2018</span>
-                <i class="fas fa-arrow-right"></i>
-                <span class="badge badge-pill badge-danger">27/04/2018</span>
-              </td>
-              <td>
-                <button mat-raised-button color="primary" data-toggle="modal" data-target=".xemchitiet-modal-lg">Chi tiết</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  <h5 class="card-title font-weight-bold text-uppercase">Chi tiết công việc</h5>
+  Khoa Công nghê Thông tin
+  <div class="mt-5">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-5">
+        <mat-card class="mat-card-sub">
+          <mat-card-header class="card-header">
+            <mat-card-title>Tên công việc</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" class="img-card" alt="Photo of a Shiba Inu">
+          <mat-card-content class="card-body">
+            <span>Tên giảng viên:
+              <b>Trần Lê Như Quỳnh</b>
+            </span>
+            <br/>
+            <span>Loại công việc:
+              <b>Loại công việc</b>
+            </span>
+            <br/>
+            <span class="badge badge-pill badge-success">26/04/2018</span>
+            <i class="fas fa-arrow-right"></i>
+            <span class="badge badge-pill badge-danger">27/04/2018</span>
+            <br/>
+          </mat-card-content>
+          <mat-card-actions class="p-3">
+            <button mat-raised-button color="primary" data-toggle="modal" data-target=".xemchitiet-modal-lg">Chi tiết</button>
+          </mat-card-actions>
+        </mat-card>
       </div>
     </div>
-  </mat-card>
+  </div>
 </div>
 
 <div class="modal fade xemchitiet-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -111,7 +103,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" mat-raised-button data-dismiss="modal">Close</button>
+        <button type="button" mat-button data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
