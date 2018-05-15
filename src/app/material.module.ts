@@ -8,12 +8,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatPaginatorModule} from '@angular/material/paginator';
-<<<<<<< HEAD
-=======
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSortModule} from '@angular/material/sort';
->>>>>>> a32b5a2dc47896f8bb53e4f54fda2f3dfc91a879
 
 @NgModule({
   imports: [
@@ -25,14 +22,10 @@ import {MatSortModule} from '@angular/material/sort';
     MatSelectModule,
     MatGridListModule,
     MatProgressBarModule,
-<<<<<<< HEAD
-    MatPaginatorModule
-=======
     MatPaginatorModule,
     MatMenuModule,
     MatSidenavModule,
     MatSortModule
->>>>>>> a32b5a2dc47896f8bb53e4f54fda2f3dfc91a879
   ],
   exports: [
     MatButtonModule,
@@ -43,14 +36,10 @@ import {MatSortModule} from '@angular/material/sort';
     MatSelectModule,
     MatGridListModule,
     MatProgressBarModule,
-<<<<<<< HEAD
-    MatPaginatorModule
-=======
     MatPaginatorModule,
     MatMenuModule,
     MatSidenavModule,
     MatSortModule
->>>>>>> a32b5a2dc47896f8bb53e4f54fda2f3dfc91a879
   ],
 })
 export class MaterialModule { }
