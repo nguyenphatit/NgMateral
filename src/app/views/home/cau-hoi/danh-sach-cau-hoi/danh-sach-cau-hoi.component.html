@@ -3,77 +3,47 @@
   Khoa Công nghệ Thông tin
   <div class="mt-5">
 
-    <mat-card class="mb-5">
+    <mat-card *ngFor="let question of questions" class="mb-5">
       <mat-card-header id="heading1">
         <mat-card-title class="m-3">
-          <b>Câu 1:</b> Quyền và nghĩa vụ Quyền và nghĩa vụ Quyền và nghĩa vụ
+          <!-- <b>Câu 1:</b> -->{{question?.content}}
         </mat-card-title>
         <mat-card-subtitle class="m-3">
-          <button mat-raised-button color="primary" matBadge="Dễ" matBadgePosition="after" matBadgeColor="accent" data-toggle="collapse"
-            data-target="#collapseChuong1" aria-expanded="true" aria-controls="collapseChuong1">
+          <button mat-raised-button color="primary" matBadge="{{question?.level?.levelName}}" matBadgePosition="after" matBadgeColor="{{question?.levelId===1?'accent':'teal'}}"
+            data-toggle="collapse" [attr.data-target]="['#collapse'+question?.questionId]" aria-expanded="true" [attr.aria-controls]="['collapse'+question?.questionId]">
             Đáp án
           </button>
         </mat-card-subtitle>
       </mat-card-header>
-      <div id="collapseChuong1" class="collapse" aria-labelledby="heading1" data-parent="#accordion">
+      <div [attr.id]="['collapse'+question?.questionId]" class="collapse" aria-labelledby="heading1" data-parent="#accordion">
         <div class="card-body">
           <form class="was-validated">
-            <div class="custom-control custom-checkbox mb-3">
-              <input type="checkbox" class="custom-control-input" id="q1a1" required disabled="disabled">
-              <label class="custom-control-label" for="q1a1">Hiến Pháp</label>
-            </div>
-            <div class="custom-control custom-checkbox mb-3">
-              <input type="checkbox" class="custom-control-input" id="q1a2" required checked="checked" disabled="disabled">
-              <label class="custom-control-label" for="q1a2">Hiến Pháp và Luật</label>
-            </div>
-            <div class="custom-control custom-checkbox mb-3">
-              <input type="checkbox" class="custom-control-input" id="q1a3" required disabled="disabled">
-              <label class="custom-control-label" for="q1a3">Luật Hiến Pháp</label>
-            </div>
-            <div class="custom-control custom-checkbox mb-3">
-              <input type="checkbox" class="custom-control-input" id="q1a4" required disabled="disabled">
-              <label class="custom-control-label" for="q1a4">Luật và Chính Sách</label>
+            <div *ngFor="let answer of question?.answers" class="custom-control custom-checkbox mb-3">
+              <input type="checkbox" class="custom-control-input" id="q1a2" required disabled [checked]="answer?.correctAnswer">
+              <label class="custom-control-label" for="q1a2">{{answer?.content}}</label>
             </div>
           </form>
         </div>
       </div>
     </mat-card>
-
-    <mat-card class="mb-5">
-      <mat-card-header id="heading2">
-        <mat-card-title class="m-3">
-          <b>Câu 2:</b> Quyền và nghĩa vụ Quyền và nghĩa vụ Quyền và nghĩa vụ
-        </mat-card-title>
-        <mat-card-subtitle class="m-3">
-          <button mat-raised-button color="primary" matBadge="Khó" matBadgePosition="after" matBadgeColor="warn" data-toggle="collapse"
-            data-target="#collapseChuong2" aria-expanded="true" aria-controls="collapseChuong2">
-            Đáp án
-          </button>
-        </mat-card-subtitle>
-      </mat-card-header>
-      <div id="collapseChuong2" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
-        <div class="card-body">
-          <form class="was-validated">
-            <div class="custom-control custom-checkbox mb-3">
-              <input type="checkbox" class="custom-control-input" id="q1a1" required disabled="disabled">
-              <label class="custom-control-label" for="q1a1">Hiến Pháp</label>
-            </div>
-            <div class="custom-control custom-checkbox mb-3">
-              <input type="checkbox" class="custom-control-input" id="q1a2" required checked="checked" disabled="disabled">
-              <label class="custom-control-label" for="q1a2">Hiến Pháp và Luật</label>
-            </div>
-            <div class="custom-control custom-checkbox mb-3">
-              <input type="checkbox" class="custom-control-input" id="q1a3" required disabled="disabled">
-              <label class="custom-control-label" for="q1a3">Luật Hiến Pháp</label>
-            </div>
-            <div class="custom-control custom-checkbox mb-3">
-              <input type="checkbox" class="custom-control-input" id="q1a4" required disabled="disabled">
-              <label class="custom-control-label" for="q1a4">Luật và Chính Sách</label>
-            </div>
-          </form>
-        </div>
-      </div>
-    </mat-card>
-
+    <nav *ngIf="page_show" aria-label="Page navigation example">
+      <ul class="pagination">
+        <li *ngIf="(current_page > 1) && (numberOfPage>1)" class="page-item">
+          <a class="page-link" (click)=(movePage(current_page-1))>Previous</a>
+        </li>
+        <li *ngFor="let item of collection_page; let i = index"  [class]="'page-item '+[(i+1)==current_page? 'text-danger': '' ]">
+          <a class="page-link" (click)=(movePage(i+1))>{{i+1}}</a>
+        </li>
+        <li *ngIf="(current_page < numberOfPage) && (numberOfPage > 1)" class="page-item">
+          <a class="page-link" (click)=(movePage(current_page+1))>Next</a>
+        </li>
+      </ul>
+      <select ngModel  (change)="limitPerPage($event.target.value)">
+        <option value="3">3</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
+    </nav>
   </div>
 </div>
