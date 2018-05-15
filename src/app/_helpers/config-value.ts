@@ -4,7 +4,8 @@ import { Injectable } from '@angular/core';
 export class ConfigValue {
   role_GV = 'ROLE_GV';
   token = 'token';
-  url_port = 'http://localhost/E_Learning';
+  host_name = 'localhost';
+  url_port = `http://${this.host_name}/E_Learning`;
   auth_refresh = '/auth/refresh';
   auth_login = '/auth/login';
   remember = 'remember';
