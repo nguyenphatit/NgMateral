@@ -7,6 +7,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSortModule} from '@angular/material/sort';
@@ -21,6 +22,7 @@ import {MatSortModule} from '@angular/material/sort';
     MatSelectModule,
     MatGridListModule,
     MatProgressBarModule,
+    MatPaginatorModule,
     MatMenuModule,
     MatSidenavModule,
     MatSortModule
@@ -34,6 +36,7 @@ import {MatSortModule} from '@angular/material/sort';
     MatSelectModule,
     MatGridListModule,
     MatProgressBarModule,
+    MatPaginatorModule,
     MatMenuModule,
     MatSidenavModule,
     MatSortModule
