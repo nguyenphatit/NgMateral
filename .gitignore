@@ -43,3 +43,5 @@ testem.log
 .DS_Store
 Thumbs.db
 src/app/shared/components/slidebar/slidebar.component.html
+*.ts
+src/app/material.module.ts
