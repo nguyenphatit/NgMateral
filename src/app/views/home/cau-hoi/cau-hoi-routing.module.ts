@@ -4,7 +4,7 @@ import { DanhSachCauHoiComponent } from './danh-sach-cau-hoi/danh-sach-cau-hoi.c
 
 const routes: Routes = [
   {
-    path: 'danh-sach-cau-hoi/:id',
+    path: 'danh-sach-cau-hoi/:chapterId',
     component: DanhSachCauHoiComponent
   }, {
     path: '**',
