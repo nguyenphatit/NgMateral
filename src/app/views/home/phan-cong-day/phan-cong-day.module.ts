@@ -18,7 +18,7 @@ import { MaterialModule } from '../../../material.module';
   declarations: [
     MonHocPhanCongComponent,
     BoMonPhanCongComponent,
-    DanhSachMonHocComponent,
+  /*   DanhSachMonHocComponent, */
     ChiTietMonHocComponent
   ],
   providers: [],
