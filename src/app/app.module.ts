@@ -1,3 +1,5 @@
+import { NotifyCenterService } from './_services/notify-center.service';
+import { HomeComponent } from './views/home/home.component';
 import { QuestionService } from './_services/questionService.service';
 import { SubjectService } from './_services/subjectService.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,6 +24,8 @@ import { StructureTestDetailService } from './_services/structureTestDetailServi
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { Routes, RouterModule } from '@angular/router';
+import { HttpErrorFilter } from './_helpers/HttpErrorInterceptor';
 
 const APP_COMPONENTS = [
   HeaderComponent,
@@ -38,7 +42,8 @@ const APP_CONTAINERS = [
     ...APP_CONTAINERS,
     ...APP_COMPONENTS,
     StartComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -57,13 +62,15 @@ const APP_CONTAINERS = [
     TeacherService,
     QuestionService,
     SubjectService,
+    NotifyCenterService,
     StructureTestDetailService,
     BaseRequestOptions,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
-    }
+    },
+    HttpErrorFilter
   ],
   bootstrap: [AppComponent]
 })

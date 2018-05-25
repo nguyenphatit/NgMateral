@@ -4,9 +4,9 @@ import { Observable } from 'rxjs';
 import { ConfigValue } from '../_helpers/config-value';
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-    constructor( private config: ConfigValue) {}
+    constructor( ) {}
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const currentUser = JSON.parse(localStorage.getItem(this.config.token));
+        const currentUser = JSON.parse(localStorage.getItem('token'));
         // console.log(currentUser);
         // console.log(currentUser);
         // console.log(request.url);
