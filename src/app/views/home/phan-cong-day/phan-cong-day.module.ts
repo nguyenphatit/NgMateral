@@ -17,6 +17,7 @@ import { MaterialModule } from '../../../material.module';
   declarations: [
     MonHocPhanCongComponent,
     BoMonPhanCongComponent,
+<<<<<<< HEAD
   /*   DanhSachMonHocComponent, */
 =======
 >>>>>>> master
