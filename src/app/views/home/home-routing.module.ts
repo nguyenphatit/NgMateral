@@ -9,7 +9,6 @@ import { ThemMonHocComponent } from './them-mon-hoc/them-mon-hoc.component';
 import { DuyetCongViecComponent } from './duyet-cong-viec/duyet-cong-viec.component';
 import { ChiTietCongViecComponent } from './chi-tiet-cong-viec/chi-tiet-cong-viec.component';
 import { SoanCauHoiComponent } from './soan-cau-hoi/soan-cau-hoi.component';
-import { MatComponent } from './mat/mat.component';
 
 const routes: Routes = [
   {
@@ -60,9 +59,6 @@ const routes: Routes = [
   }, {
     path: 'soan-cau-hoi',
     component: SoanCauHoiComponent
-  }, {
-    path: 'mat',
-    component: MatComponent
   }
 ];
 

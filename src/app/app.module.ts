@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HeaderComponent, SlidebarComponent, HomeLayoutComponent } from './shared';
+import { HeaderComponent, SlidebarComponent, HomeLayoutComponent, ChatComponent } from './shared';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StartComponent } from './start/start.component';
@@ -25,7 +25,8 @@ import { MaterialModule } from './material.module';
 
 const APP_COMPONENTS = [
   HeaderComponent,
-  SlidebarComponent
+  SlidebarComponent,
+  ChatComponent
 ];
 
 const APP_CONTAINERS = [
