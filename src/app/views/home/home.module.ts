@@ -13,9 +13,12 @@ import { ThemMonHocComponent } from './them-mon-hoc/them-mon-hoc.component';
 import { DuyetCongViecComponent } from './duyet-cong-viec/duyet-cong-viec.component';
 import { SoanCauHoiComponent } from './soan-cau-hoi/soan-cau-hoi.component';
 import { MaterialModule } from '../../material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     CommonModule,
     HomeRoutingModule,
