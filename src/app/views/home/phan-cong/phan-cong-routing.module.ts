@@ -11,13 +11,16 @@ const routes: Routes = [
     component: PhanCongCongViecComponent
   }, {
     path: 'de-cuong',
-    component: PhanCongDeCuongComponent
+    component: PhanCongDeCuongComponent,
+    data: { decuong: '1' }
   }, {
     path: 'cau-truc',
-    component: PhanCongCauTrucComponent
+    component: PhanCongCauTrucComponent,
+    data: { cautruc: '2' }
   }, {
     path: 'cau-hoi',
-    component: PhanCongCauHoiComponent
+    component: PhanCongCauHoiComponent,
+    data: { cauhoi: '3' }
   }, {
     path: '**',
     redirectTo: '/'
