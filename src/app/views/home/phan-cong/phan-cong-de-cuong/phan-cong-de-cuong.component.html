@@ -36,7 +36,7 @@
         </div>
         <div class="form-group" >
           <label class="font-weight-bold" for="ket-thuc">Thời gian kết thúc</label>
-          <input type="date"  id="ket-thuc" class="form-control" />
+          <input type="date" [(ngModel)]="name"  #ctrl ="ngModel"id="ket-thuc" class="form-control" />
         </div>
         <div class="text-right">
           <button type="submit" [disabled]="!selectFinish" mat-raised-button color="primary">Xác nhận</button>
