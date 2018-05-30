@@ -1,11 +1,14 @@
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
+
 @Component({
   templateUrl: 'phan-cong-de-cuong.component.html'
 })
+
 
 export class PhanCongDeCuongComponent implements OnInit, OnDestroy {
   isLinear = false;
@@ -28,5 +31,4 @@ export class PhanCongDeCuongComponent implements OnInit, OnDestroy {
       secondCtrl: ['', Validators.required]
     });
   }
-
 }

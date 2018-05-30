@@ -11,6 +11,9 @@ export class SubjectService {
 
     getChaptersBySubjectId(subjectId: number, page: number, size: number): Observable<any> {
         return this.http.get(this.config.url_port + `/subject/${subjectId}/chapter?page=${page}&size=${size}`).pipe(map(data => data));
-}
+    }
+    getSubjectBySubjectId(subjectId: number): Observable<any> {
+        return this.http.get(this.config.url_port + `/subject/${subjectId}`).pipe(map((data: any) => data));
+    }
 
 }

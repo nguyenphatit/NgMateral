@@ -1,10 +1,12 @@
+import { map, catchError } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../_services/authentication.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ConfigValue } from '../../../_helpers/config-value';
 import { Teacher } from '../../../_models';
 import { NgForm } from '@angular/forms';
+
 
 @Component({
   templateUrl: 'main.component.html'
@@ -25,7 +27,8 @@ export class MainComponent implements OnInit {
   constructor(
     private authentication: AuthenticationService,
     private http: HttpClient,
-    private config: ConfigValue
+    private config: ConfigValue,
+    private router: Router
   ) { }
 
   ngOnInit() {

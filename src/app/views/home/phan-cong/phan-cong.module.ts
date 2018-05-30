@@ -9,10 +9,11 @@ import { PhanCongCauTrucComponent } from './phan-cong-cau-truc/phan-cong-cau-tru
 import { MaterialModule } from '../../../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     PhanCongRoutingModule,
     MaterialModule,
     FormsModule,
