@@ -1,3 +1,4 @@
+import { NotifyCenterService } from './../../../_services/notify-center.service';
 import { Component, OnInit } from '@angular/core';
 import { Teacher, Role } from '../../../_models';
 import { AuthenticationService } from '../../../_services/authentication.service';
@@ -6,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { ConfigValue } from '../../../_helpers/config-value';
 import { collectExternalReferences } from '@angular/compiler';
 import { element } from 'protractor';
+import { NotifyCenter } from '../../../_models/notify-center';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -23,10 +25,14 @@ export class SlidebarComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private router: Router,
     private http: HttpClient,
-    private config: ConfigValue
+    private config: ConfigValue,
+    private notifyCenterService: NotifyCenterService
   ) { }
 
   ngOnInit() {
+    this.notifyCenterService.getNotifyCenter().subscribe((res: NotifyCenter) => {
+      console.log(res);
+    });
     this.getName();
     this.getRole();
   }

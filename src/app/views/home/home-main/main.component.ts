@@ -1,9 +1,11 @@
+import { map, catchError } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../_services/authentication.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ConfigValue } from '../../../_helpers/config-value';
 import { Teacher } from '../../../_models';
+
 
 @Component({
   templateUrl: 'main.component.html'
@@ -14,16 +16,17 @@ export class MainComponent implements OnInit {
   public teacher: Teacher;
 
   tiles = [
-    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
+    { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
+    { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
+    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
+    { text: 'Four', cols: 2, rows: 1, color: '#DDBDF1' },
   ];
 
   constructor(
     private authentication: AuthenticationService,
     private http: HttpClient,
-    private config: ConfigValue
+    private config: ConfigValue,
+    private router: Router
   ) { }
 
   ngOnInit() {

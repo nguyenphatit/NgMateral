@@ -7,24 +7,23 @@
       <form>
         <div class="form-group">
           <label class="font-weight-bold" for="bo-mon">Bộ môn</label>
-          <select class="form-control" id="bo-mon">
-            <option>Chọn bộ môn</option>
-            <option value="bo-mon-1">HTTT</option>
+          <select class="form-control" id="bo-mon" ngModel (change)="changeBoMon($event.target.value)">
+            <option value="0">Chọn bộ môn</option>
+            <option *ngFor="let boMon of dsBoMon" [value]="boMon.departmentId">{{boMon.departmentName}}</option>
           </select>
         </div>
         <div class="form-group">
           <label class="font-weight-bold" for="mon-hoc">Môn học</label>
-          <select class="form-control" id="mon-hoc">
-            <option>Chọn môn học</option>
-            <option value="bo-mon-1">HTTTQL</option>
+          <select class="form-control" id="mon-hoc" ngModel (change)="changeSubject($event.target.value)">
+            <option value="0">Chọn môn học</option>
+            <option *ngFor="let subject of dsMonHoc" [value]="subject.subjectId">{{subject.subjectName}}</option>
           </select>
         </div>
         <div class="form-group">
           <label class="font-weight-bold" for="giang-vien">Giảng viên</label>
-          <select class="form-control" id="giang-vien">
-            <option>Chọn giảng viên</option>
-            <option value="bo-mon-1">Nguyễn Tấn Phát</option>
-            <option value="bo-mon-2">Trần Văn Thắng</option>
+          <select class="form-control" ngModel id="giang-vien" (change)="changeTeacher($event.target.value)">
+            <option value="0">Chọn giảng viên</option>
+            <option *ngFor="let teacher of dsGiangVien" [value]="teacher.teacherId">{{teacher.firstName + ' ' +teacher.lastName}}</option>
           </select>
         </div>
         <div class="form-group">
@@ -33,17 +32,16 @@
         </div>
         <div class="form-group">
           <label class="font-weight-bold" for="bat-dau">Thời gian bắt đầu</label>
-          <input type="date" id="bat-dau" class="form-control" />
+          <input type="date" id="bat-dau" type="date" ngModel (change)="changeStartTime($event.target.value)" class="form-control" />
         </div>
-        <div class="form-group">
+        <div class="form-group" >
           <label class="font-weight-bold" for="ket-thuc">Thời gian kết thúc</label>
-          <input type="date" id="ket-thuc" class="form-control" />
+          <input type="date"  id="ket-thuc" class="form-control" />
         </div>
         <div class="text-right">
-          <button type="submit" mat-raised-button color="primary">Xác nhận</button>
+          <button type="submit" [disabled]="!selectFinish" mat-raised-button color="primary">Xác nhận</button>
         </div>
       </form>
-
     </div>
   </mat-card>
 </div>

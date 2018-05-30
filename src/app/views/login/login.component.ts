@@ -64,6 +64,7 @@ export class LoginComponent implements OnInit {
           } else {
             localStorage.removeItem(this.config.remember);
           }
+          console.log(this.returnUrl);
           this.router.navigate([this.returnUrl]);
         }, (err: HttpErrorResponse) => {
           if (err.status === 403) {
