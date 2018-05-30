@@ -5,6 +5,7 @@ import { AuthenticationService } from '../../../_services/authentication.service
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ConfigValue } from '../../../_helpers/config-value';
 import { Teacher } from '../../../_models';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -14,6 +15,7 @@ import { Teacher } from '../../../_models';
 export class MainComponent implements OnInit {
   currentUser: any;
   public teacher: Teacher;
+  name = '';
 
   tiles = [
     { text: 'One', cols: 3, rows: 1, color: 'lightblue' },

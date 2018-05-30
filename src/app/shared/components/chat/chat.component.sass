@@ -15,6 +15,7 @@ a[aria-expanded="true"]::before, a[aria-expanded="false"]::before
     display: block
     max-width: 250px
     min-width: 250px
+    z-index: 1
     position: fixed
     right: 0
     bottom: 0
@@ -45,22 +46,15 @@ a[aria-expanded="true"]::before, a[aria-expanded="false"]::before
       a
         color: #fff
         text-decoration: none
-    .chatlist-body
-      max-height: 400px
-      min-height: 0
-      overflow: auto
-      padding: 0
-      background-color: #fafafa
-
-
     .chatbox-body
-      max-height: 200px
+      max-height: 250px
       min-height: 0
       overflow: auto
       padding: 0
       background-color: #fafafa
       border: 0
       .chat-content
+        min-height: 200px
         border-bottom: 1px solid #cecece
         .your-chat
           left: 0

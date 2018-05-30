@@ -5,10 +5,13 @@
 
   <mat-grid-list cols="2" rowHeight="100px">
     <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'lightblue'">
-      A
+      <input [(ngModel)]="name" #ctrl="ngModel" class="form-control">
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'lightpink'">
-      B
+      <p>Value: {{ name }}</p>
+      <p>Valid: {{ ctrl.valid }}</p>
+
+      <button (click)="setValue()">Set value</button>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
