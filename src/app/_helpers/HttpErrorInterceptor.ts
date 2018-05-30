@@ -22,13 +22,13 @@ export class HttpErrorInterceptor implements HttpInterceptor {
       } else {
         switch (err.status) {
           case 0:
-            this.notifyCenterService.sendNotifyCenter({ massage: 'Server not found...', status: err.error, details: null });
-            break;
+              this.notifyCenterService.sendNotifyCenter({ massage: 'Server not found...', status: err.error, details: null });
+              this.router.navigate(['/login']);
+              break;
           case 401:
             this.notifyCenterService.sendNotifyCenter({ massage: 'Please login...', status: err.error, details: null });
             localStorage.clear();
             this.router.navigate(['/login']);
-            this.notifyCenterService.clearNotifyCenter();
             break;
           case 403:
             this.notifyCenterService.sendNotifyCenter({ massage: 'Username or password not match..', status: err.error, details: null });
