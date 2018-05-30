@@ -1,3 +1,5 @@
+import { JobService } from './_services/job.service';
+import { NotifyCenter } from './_models/notify-center';
 import { NotifyCenterService } from './_services/notify-center.service';
 import { HomeComponent } from './views/home/home.component';
 import { QuestionService } from './_services/questionService.service';
@@ -7,7 +9,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HeaderComponent, SlidebarComponent, HomeLayoutComponent, ChatComponent } from './shared';
+import { HeaderComponent, SlidebarComponent, HomeLayoutComponent, ChatComponent, NotifyCenterComponent } from './shared';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StartComponent } from './start/start.component';
@@ -40,11 +42,12 @@ const APP_CONTAINERS = [
 @NgModule({
   declarations: [
     AppComponent,
-    ...APP_CONTAINERS,
     ...APP_COMPONENTS,
+    ...APP_CONTAINERS,
     StartComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    NotifyCenterComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,8 @@ const APP_CONTAINERS = [
       useClass: JwtInterceptor,
       multi: true
     },
-    HttpErrorFilter
+    HttpErrorFilter,
+    JobService
   ],
   bootstrap: [AppComponent]
 })
