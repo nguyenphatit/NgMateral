@@ -15,6 +15,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatBadgeModule,
     MatProgressSpinnerModule,
     MatDividerModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTooltipModule
   ],
   exports: [
     MatButtonModule,
@@ -51,7 +53,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatBadgeModule,
     MatProgressSpinnerModule,
     MatDividerModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTooltipModule
   ],
 })
 export class MaterialModule { }

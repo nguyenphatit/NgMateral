@@ -2,16 +2,32 @@
   <mat-card class="p-3 mb-3 main-title">
     <h3>Xin chào {{ teacher?teacher?.firstName: '...' }} {{ teacher?teacher?.lastName: '...' }}</h3>
   </mat-card>
-
-  <mat-grid-list cols="2" rowHeight="100px">
-    <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'lightblue'">
-      <input [(ngModel)]="name" #ctrl="ngModel" class="form-control">
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'lightpink'">
-      <p>Value: {{ name }}</p>
-      <p>Valid: {{ ctrl.valid }}</p>
-
-      <button (click)="setValue()">Set value</button>
-    </mat-grid-tile>
-  </mat-grid-list>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 my-2">
+      <mat-card>
+        <div class="row">
+          <div class="col-sm-4">
+            <img src="../assets/images/cyberpop-zoe.jpg" width="100%">
+          </div>
+          <div class="col-sm-8 py-3">
+            <h3>Nguyễn Tấn Phát</h3>
+            <h6>14130089@st.hcmuaf.edu.vn</h6>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-sm-12 col-md-6 my-2">
+      <mat-card>
+        <div class="row">
+          <div class="col-sm-4">
+            <img src="../assets/images/cyberpop-zoe.jpg" width="100%">
+          </div>
+          <div class="col-sm-8 py-3">
+            <h3>Trần Văn Thắng</h3>
+            <h6>14130118@st.hcmuaf.edu.vn</h6>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
 </div>

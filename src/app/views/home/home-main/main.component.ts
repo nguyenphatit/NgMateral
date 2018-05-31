@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
 
 
 @Component({
-  templateUrl: 'main.component.html'
+  templateUrl: 'main.component.html',
 })
 
 export class MainComponent implements OnInit {
