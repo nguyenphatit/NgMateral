@@ -14,15 +14,15 @@
   <div class="sidebar__body">
     <ul class="list-unstyled components">
       <li>
-        <a [routerLink]="['/']">
-          <i class="fas fa-home"></i>
-          Trang chủ
+        <a [routerLink]="['/']" data-toggle="tooltip" data-placement="right" title="Trang chủ">
+          <i class="fas fa-home"></i>&nbsp;
+          <span class="description-slide">Trang chủ</span>
         </a>
       </li>
       <li>
-        <a href="">
-          <i class="fas fa-user"></i>
-          Thông tin cá nhân
+        <a href="" data-toggle="tooltip" data-placement="right" title="Thông tin cá nhân">
+          <i class="fas fa-user"></i>&nbsp;
+          <span class="description-slide">Thông tin cá nhân</span>
         </a>
       </li>
 
@@ -30,9 +30,9 @@
     <div class="sidebar-truong-khoa sidebar-box">
       <ul class="list-unstyled components">
         <li *ngFor="let key of getKeys(mapMenuRole)">
-          <a [routerLink]="key">
-            <i [class]='[mapMenuRole.get(key)[0]]'></i>
-            {{ mapMenuRole.get(key)[1] }}
+          <a [routerLink]="key" data-toggle="tooltip" data-placement="right" title="{{ mapMenuRole.get(key)[1] }}">
+            <i [class]='[mapMenuRole.get(key)[0]]'></i>&nbsp;
+            <span class="description-slide">{{ mapMenuRole.get(key)[1] }}</span>
           </a>
         </li>
       </ul>
