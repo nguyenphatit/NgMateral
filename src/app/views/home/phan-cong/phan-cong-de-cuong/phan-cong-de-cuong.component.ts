@@ -1,3 +1,4 @@
+import { NotifyCenterService } from './../../../../_services/notify-center.service';
 import { Job } from './../../../../_models/job';
 import { JobService } from './../../../../_services/job.service';
 import { Department } from './../../../../_models/department';
@@ -37,7 +38,8 @@ export class PhanCongDeCuongComponent implements OnInit, OnDestroy {
     , private router: Router
     , private subjectService: SubjectService
     , private teacherService: TeacherService
-    , private jobService: JobService) {
+    , private jobService: JobService
+    , private notifyCenterService: NotifyCenterService) {
 
   }
 
@@ -108,14 +110,14 @@ export class PhanCongDeCuongComponent implements OnInit, OnDestroy {
     if (!this.submit) {
       const job = new Job();
       job.subjectId = this.selectedSubject.subjectId;
-      job.jobContent = this.jobContent;
+      job.jobContent = this.jobContent || '';
       job.endTime = this.dueDate;
       job.teacherId = this.selectedTeacher.teacherId;
       this.jobService.addOutLine(job).subscribe((data: any) => {
-        console.log(data);
+        this.notifyCenterService.sendNotifyCenter({ massage: data, status: 200, details: null });
       });
     } else {
-      console.log('Không thể submit!');
+      this.notifyCenterService.sendNotifyCenter({ massage: 'Không thể nộp!', status: 200, details: null });
     }
   }
 }

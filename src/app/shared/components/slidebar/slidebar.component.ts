@@ -30,9 +30,6 @@ export class SlidebarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.notifyCenterService.getNotifyCenter().subscribe((res: NotifyCenter) => {
-      console.log(res);
-    });
     this.getName();
     this.getRole();
   }
