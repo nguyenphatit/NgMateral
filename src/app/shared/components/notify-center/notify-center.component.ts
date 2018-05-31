@@ -14,6 +14,7 @@ export class NotifyCenterComponent implements OnInit {
     this.notifyCenterService.getNotifyCenter().subscribe((res: NotifyCenter) => {
       this.isShowCenterMs = true;
       this.notifyCenter = res;
+      console.log('Notify: ', this.notifyCenter);
       setTimeout(() => { this.isShowCenterMs = false; }, 5000);
     });
   }

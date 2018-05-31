@@ -9,11 +9,9 @@
           <ng-template matStepLabel>Bộ môn phân công</ng-template>
           <form>
             <label class="font-weight-bold" for="mon-hoc">Bộ môn</label>
-            <select class="form-control" id="bo-mon">
-              <option>Chọn bộ mô
-                <nav></nav>
-              </option>
-              <option value="bo-mon-1">1</option>
+            <select class="form-control" id="bo-mon" #boMon (change)="changeDepartment(boMon.value)">
+              <option value="0">Chọn bộ môn</option>
+              <option *ngFor="let c of departments" [value]="c?.departmentId">{{ c?.departmentName }}</option>
             </select>
           </form>
         </mat-step>
@@ -21,9 +19,9 @@
           <ng-template matStepLabel>Môn học phân công</ng-template>
           <form>
             <label class="font-weight-bold" for="mon-hoc">Môn học</label>
-            <select class="form-control" id="mon-hoc">
+            <select class="form-control" id="mon-hoc" #monHoc (change)="changeSubject(monHoc.value)">
               <option>Chọn môn học</option>
-              <option value="bo-mon-1">HTTTQL</option>
+              <option *ngFor="let subject of subjects" [value]="subject?.subjectId"> {{subject?.subjectName}}</option>
             </select>
           </form>
         </mat-step>
@@ -31,10 +29,9 @@
           <ng-template matStepLabel>Giảng viên phân công</ng-template>
           <form>
             <label class="font-weight-bold" for="giang-vien">Giảng viên</label>
-            <select class="form-control" id="giang-vien">
+            <select class="form-control" id="giang-vien" #teacher (change)="changeTeacher(teacher.value)">
               <option>Chọn giảng viên</option>
-              <option value="bo-mon-1">Nguyễn Tấn Phát</option>
-              <option value="bo-mon-2">Trần Văn Thắng</option>
+              <option *ngFor="let teacher   of teachers" [value]="teacher?.teacherId"> {{teacher?.firstName + ' '+ teacher?.lastName}}</option>
             </select>
           </form>
         </mat-step>
@@ -43,33 +40,25 @@
           <form>
             <div class="form-group">
               <label class="font-weight-bold" for="chuong-muc">Chương mục</label>
-              <select class="custom-select" id="chuong-muc" multiple>
-                <option value="1">Chương 1</option>
-                <option value="2">Chương 2</option>
-                <option value="3">Chương 3</option>
-                <option value="4">Chương 4</option>
-                <option value="5">Chương 5</option>
-                <option value="6">Chương 6</option>
+              <select class="custom-select" [(ngModel)]="listChapterSelected" (ngModelChange)="isSubmit()" id="chuong-muc" name="chuong-muc"
+                multiple>
+                <option *ngFor="let chapter of listChapter" [value]="chapter?.chapterId">{{chapter?.chapterName + ': ' +chapter?.describe}}</option>
               </select>
             </div>
             <div class="form-group">
               <label class="font-weight-bold" for="so-luong">Số lượng câu hỏi</label>
-              <input type="number" class="form-control" />
+              <input type="number" name="number-question" [(ngModel)]="numberQuestion" class="form-control" min="1" />
             </div>
             <div class="form-group">
               <label class="font-weight-bold" for="noi-dung-phan-cong">Nội dung công việc</label>
-              <textarea class="form-control" id="noi-dung-phan-cong" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-              <label class="font-weight-bold" for="bat-dau">Thời gian bắt đầu</label>
-              <input type="date" id="bat-dau" class="form-control" />
+              <textarea class="form-control" name="noi-dung-phan-cong" [(ngModel)]="jobContent" id="noi-dung-phan-cong" rows="3"></textarea>
             </div>
             <div class="form-group">
               <label class="font-weight-bold" for="ket-thuc">Thời gian kết thúc</label>
-              <input type="date" id="ket-thuc" class="form-control" />
+              <input type="date" id="ket-thuc" #due (change)="changeDue(due.value)" class="form-control" />
             </div>
             <div class="text-right">
-              <button type="submit" mat-raised-button color="primary">Xác nhận</button>
+              <button type="button" [disabled]="submit" (click)="submitForm()" mat-raised-button color="primary">Xác nhận</button>
             </div>
           </form>
         </mat-step>

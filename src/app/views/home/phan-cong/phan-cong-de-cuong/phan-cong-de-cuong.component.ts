@@ -67,11 +67,17 @@ export class PhanCongDeCuongComponent implements OnInit, OnDestroy {
   changeDepartment(departmentId: number) {
     departmentId = +departmentId;
     this.selectedDepartment = this.departments.find(department => department.departmentId === departmentId);
-    if (this.selectedDepartment) { this.subjects = this.selectedDepartment['subjects']; return; }
+    if (this.selectedDepartment) {
+      this.subjectService.getSubjectsAddOutLine(this.selectedDepartment.departmentId).subscribe(
+        (data: any) => this.subjects = data
+      );
+      return;
+    }
     this.subjects = undefined;
     this.teachers = undefined;
     this.selectedSubject = undefined;
     this.selectedTeacher = undefined;
+    this.isSubmit();
   }
   changeSubject(subjectId: number) {
     subjectId = +subjectId;
@@ -80,6 +86,7 @@ export class PhanCongDeCuongComponent implements OnInit, OnDestroy {
       this.teachers = data.teachers;
     });
     this.selectedTeacher = undefined;
+    this.isSubmit();
   }
   changeTeacher(teacherId: number) {
     teacherId = +  teacherId;
@@ -97,13 +104,13 @@ export class PhanCongDeCuongComponent implements OnInit, OnDestroy {
       && (this.selectedTeacher)
       && (this.dueDate &&
         this.dueDate !== NaN));
-    console.log('----');
-    console.log(!!(this.selectedDepartment), this.selectedDepartment);
-    console.log(!!(this.selectedSubject), this.selectedSubject);
-    console.log(!!(this.selectedTeacher), this.selectedTeacher);
-    console.log(!!((this.dueDate && this.dueDate !== NaN)), this.dueDate);
-    console.log('----');
-    console.log(this.submit);
+    // console.log('----');
+    // console.log(!!(this.selectedDepartment), this.selectedDepartment);
+    // console.log(!!(this.selectedSubject), this.selectedSubject);
+    // console.log(!!(this.selectedTeacher), this.selectedTeacher);
+    // console.log(!!((this.dueDate && this.dueDate !== NaN)), this.dueDate);
+    // console.log('----');
+    // console.log(this.submit);
   }
   submitForm() {
     this.isSubmit();
