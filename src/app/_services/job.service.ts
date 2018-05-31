@@ -16,4 +16,21 @@ export class JobService {
       endTime: job.endTime
     });
   }
+  addStructureTest(job: Job): Observable<any> {
+    return this.http.post(this.config.url_port + `/job/add-structure-test`, {
+      subjectId: job.subjectId,
+      teacherId: job.teacherId,
+      jobContent: job.jobContent,
+      endTime: job.endTime
+    });
+  }
+  jobAddQuestion(job: Job, listChapter: any, numberQuestion: number): Observable<any> {
+    return this.http.post(this.config.url_port +
+      `/job/add-question?listChapter=${(listChapter)}&numberQuestion=${numberQuestion}`, {
+        subjectId: job.subjectId,
+        teacherId: job.teacherId,
+        jobContent: job.jobContent,
+        endTime: job.endTime
+      });
+  }
 }

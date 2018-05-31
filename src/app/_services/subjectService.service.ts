@@ -18,5 +18,16 @@ export class SubjectService {
     getSubjectBySubjectId(subjectId: number): Observable<Subject> {
         return this.http.get(this.config.url_port + `/subject/${subjectId}`).pipe(map((data: any) => data = data ? data : []));
     }
+    getSubjectsAddOutLine(departmentId: number): Observable<any> {
+        return this.http.get(this.config.url_port + `/subject/${departmentId}/add-out-line/subjects`).pipe(
+            map(data => data = data ? data : [])
+        );
+    }
+    getSubjectsAddStructureTest(departmentId: number): Observable<any> {
+        return this.http.get(this.config.url_port + `/subject/${departmentId}/add-structure-test/subjects`).pipe(
+            map(data => data = data ? data : [])
+        );
+    }
+
 
 }
