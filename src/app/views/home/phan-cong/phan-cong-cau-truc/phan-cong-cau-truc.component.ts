@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 export class PhanCongCauTrucComponent implements OnInit, OnDestroy {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  isLinear = false;
 
   constructor(private _formBuilder: FormBuilder) { }
 
