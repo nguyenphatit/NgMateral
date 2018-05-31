@@ -28,7 +28,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             this.notifyCenterService.sendNotifyCenter({ massage: 'Please login...', status: err.error, details: null });
             localStorage.clear();
             this.router.navigate(['/login']);
-            this.notifyCenterService.clearNotifyCenter();
             break;
           case 403:
             this.notifyCenterService.sendNotifyCenter({ massage: 'Username or password not match..', status: err.error, details: null });

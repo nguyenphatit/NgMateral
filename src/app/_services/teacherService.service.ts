@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import { ConfigValue } from './../_helpers/config-value';
 
 @Injectable()
@@ -22,8 +22,10 @@ export class TeacherService {
         }));
     }
     getListDepartmentOfTeacherEmailFromToken(): Observable<any> {
-        return this.http.get(this.config.url_port + `/teacher/departments`).pipe(map((data: any) => {
-            return data;
+        return this.http.get(this.config.url_port + `/teacher/departments`).pipe( catchError(e => {
+            // noti .setNOttt
+             return of([]);
+
         }));
     }
     getTeacherByTeacherIdNoCollection(teacherId: number): Observable<any> {
