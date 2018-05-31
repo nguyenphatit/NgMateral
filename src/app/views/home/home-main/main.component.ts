@@ -10,6 +10,7 @@ import { NgForm } from '@angular/forms';
 
 @Component({
   templateUrl: 'main.component.html',
+  styleUrls: ['main.component.sass']
 })
 
 export class MainComponent implements OnInit {

@@ -6,28 +6,41 @@
     <div class="card-body">
       <mat-vertical-stepper [linear]="isLinear" #stepper>
         <mat-step [stepControl]="firstFormGroup">
-          <ng-template matStepLabel>Chọn môn học phân công</ng-template>
-          <form [formGroup]="firstFormGroup">
-            <div class="form-group">
-              <label class="font-weight-bold" for="mon-hoc">Môn học</label>
-              <select class="form-control" id="mon-hoc">
-                <option>Chọn môn học</option>
-                <option value="bo-mon-1">HTTTQL</option>
-              </select>
-            </div>
+          <ng-template matStepLabel>Bộ môn phân công</ng-template>
+          <form>
+            <label class="font-weight-bold" for="mon-hoc">Bộ môn</label>
+            <select class="form-control" id="bo-mon">
+              <option>Chọn bộ mô
+                <nav></nav>
+              </option>
+              <option value="bo-mon-1">1</option>
+            </select>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+          <ng-template matStepLabel>Môn học phân công</ng-template>
+          <form>
+            <label class="font-weight-bold" for="mon-hoc">Môn học</label>
+            <select class="form-control" id="mon-hoc">
+              <option>Chọn môn học</option>
+              <option value="bo-mon-1">HTTTQL</option>
+            </select>
           </form>
         </mat-step>
         <mat-step [stepControl]="thirdFormGroup">
+          <ng-template matStepLabel>Giảng viên phân công</ng-template>
+          <form>
+            <label class="font-weight-bold" for="giang-vien">Giảng viên</label>
+            <select class="form-control" id="giang-vien">
+              <option>Chọn giảng viên</option>
+              <option value="bo-mon-1">Nguyễn Tấn Phát</option>
+              <option value="bo-mon-2">Trần Văn Thắng</option>
+            </select>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="fourthFormGroup">
           <ng-template matStepLabel>Nội dung phân công</ng-template>
-          <form [formGroup]="thirdFormGroup">
-            <div class="form-group">
-              <label class="font-weight-bold" for="giang-vien">Giảng viên</label>
-              <select class="form-control" id="giang-vien">
-                <option>Chọn giảng viên</option>
-                <option value="bo-mon-1">Nguyễn Tấn Phát</option>
-                <option value="bo-mon-2">Trần Văn Thắng</option>
-              </select>
-            </div>
+          <form>
             <div class="form-group">
               <label class="font-weight-bold" for="chuong-muc">Chương mục</label>
               <select class="custom-select" id="chuong-muc" multiple>

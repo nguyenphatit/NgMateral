@@ -7,7 +7,7 @@
       <a class="text-uppercase nameTeacher" href="">{{ teacher?teacher?.firstName: '...' }} {{ teacher?teacher?.lastName: '...' }}</a>
     </h5>
     <select id="select-role" class="form-control" #t (change)="showMenuItemByRole(t.value)">
-      <option value="default" selected>Please get Role</option>
+      <option value="default" selected>Hãy chọn chức vụ</option>
       <option *ngFor="let itemRole of role" [value]="[itemRole.roleID]">{{ itemRole.roleName }}</option>
     </select>
   </div>
