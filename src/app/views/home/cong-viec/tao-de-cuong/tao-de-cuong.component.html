@@ -1,14 +1,15 @@
 <div class="container-fluid">
+  <h5 class="card-title font-weight-bold text-uppercase">Danh sách</h5>
+  Khoa Công nghệ Thông tin
+
+  <p class="text-right">
+    <button type="button" mat-raised-button color="accent" data-toggle="modal" data-target="#modalThem">
+      <i class="fas fa-plus-circle"></i>
+    </button>
+  </p>
+
   <mat-card class="card card-content">
-    <div class="card-header">
-      <h5 class="card-title font-weight-bold text-uppercase">Danh sách câu hỏi</h5>
-    </div>
     <div class="card-body">
-      <p class="text-right">
-        <button type="button" mat-raised-button color="accent" data-toggle="modal" data-target="#modalThem">
-          <i class="fas fa-plus-circle"></i>
-        </button>
-      </p>
       <div id="accordion">
         <div class="card">
           <div class="card-header" id="headingOne">
@@ -21,7 +22,6 @@
               </button>
             </h5>
           </div>
-
           <div id="collapseChuong1" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
               Nội dung chương 1

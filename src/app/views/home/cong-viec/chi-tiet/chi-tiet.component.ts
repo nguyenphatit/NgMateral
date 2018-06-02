@@ -21,7 +21,7 @@ export class ChiTietComponent implements OnInit {
       this.jobs = data.listOfResult;
       this.numberOfPage = data.numberOfPage;
       this.numberOfRecord = data.numberOfRecord;
-      console.log(data);
+      // console.log(data);
       this.numberOfPage  = 10;
     });
   }
