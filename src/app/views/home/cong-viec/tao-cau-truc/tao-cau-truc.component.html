@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <mat-card class="card card-content">
     <div class="card-header">
-      <h5 class="card-title font-weight-bold text-uppercase">Cấu trúc đề thi - Hệ thống thông tin quản lý</h5>
+      <h5 class="card-title font-weight-bold text-uppercase">Tạo cấu trúc đề thi</h5>
     </div>
     <div class="card-body">
       <table class="table table-bordered">
@@ -13,7 +13,7 @@
             <td>Số câu khó</td>
           </tr>
           <tr>
-            <th>32</th>
+            <th>1</th>
             <td>13.0</td>
             <td>22</td>
             <td>10</td>
@@ -22,8 +22,8 @@
       </table>
     </div>
 
-    <p class="text-right m-3" data-toggle="modal" data-target="#modal">
-      <button mat-raised-button color="primary">
+    <p class="text-right m-3" data-toggle="modal" data-target="#modalAdd">
+      <button mat-raised-button color="warn">
         <i class="fas fa-plus"></i>
       </button>
     </p>
@@ -34,22 +34,20 @@
           <thead class="text-center">
             <tr>
               <th scope="col">Chương</th>
-              <th scope="col">Mội dung</th>
-              <th scope="col">Độ khó</th>
+              <th scope="col">Mức độ</th>
               <th scope="col">Số lượng</th>
               <th scope="col">Tổng điểm</th>
               <th scope="col">Cập nhật</th>
             </tr>
           </thead>
           <tbody class="text-center">
-            <tr>
-              <th scope="row">Chương 1</th>
-              <td>Chapter 1</td>
-              <td>Dễ</td>
-              <td>5</td>
-              <td>2.5</td>
+            <tr *ngFor="let item of structureTestDetail">
+              <th scope="row">Chương {{item.chapterId}}</th>
+              <td>{{(item.levelId == 1) ? 'Khó' : 'Dễ'}}</td>
+              <td>{{item.numberOfQuestion}}</td>
+              <td>{{item.totalScore}}</td>
               <td>
-                <button mat-raised-button color="primary" data-toggle="modal" data-target="#modal">
+                <button mat-raised-button color="primary" data-toggle="modal" [attr.data-target]="['#modalc' + item.chapterId + 'l' + item.levelId]">
                   <i class="fas fa-edit"></i>
                 </button>
               </td>
@@ -61,7 +59,55 @@
   </mat-card>
 </div>
 
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+<!-- form sửa -->
+<div *ngFor="let mitem of structureTestDetail" class="modal fade" [attr.id]="['modalc' + mitem.chapterId + 'l' + mitem.levelId]" tabindex="-1" role="dialog"
+  aria-labelledby="modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa chương {{mitem.chapterId}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="ma-cau-truc">Mã cấu trúc</label>
+            <input type="number" class="form-control" id="ma-cau-truc" [(ngModel)]="mitem.structureTestId" name="estructureTestId" readonly>
+          </div>
+          <div class="form-group">
+            <label for="ma-chuong">Mã chương</label>
+            <input type="number" class="form-control" id="ma-chuong" [(ngModel)]="mitem.chapterId" name="echapterId" readonly>
+          </div>
+          <div class="form-group">
+            <label for="muc-do">Mức độ</label>
+            <select class="form-control" id="muc-do" [(ngModel)]="mitem.levelId" name="echapterId">
+              <option value="0">Chọn mức độ</option>
+              <option value="1">Khó</option>
+              <option value="2">Dễ</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="so-cau-hoi">Số lượng câu hỏi</label>
+            <input type="number" class="form-control" id="so-cau-hoi" [(ngModel)]="mitem.numberOfQuestion" name="enumberOfQuestion">
+          </div>
+          <div class="form-group">
+            <label for="tong-diem">Tổng điểm</label>
+            <input type="number" class="form-control" id="tong-diem" [(ngModel)]="mitem.totalScore" name="etotalScore">
+          </div>
+          <button type="button" (click)="submitFormEdit(mitem.structureTestId)" #t mat-raised-button color="primary">Xác nhận</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" mat-raised-button data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- form them -->
+<div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -71,34 +117,35 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
           <div class="form-group">
             <label for="chuong">Chương</label>
-            <select class="form-control" id="chuong">
-              <option>Chương 1</option>
-              <option>Chương 2</option>
+            <select class="form-control" id="ma-chuong" ngModel name="chapterId">
+              <option value="0">Chọn chương</option>
+              <option *ngFor="let ch of structureTestDetail" [value]="ch?.chapterId">Chương {{ ch?.chapterId }}</option>
             </select>
           </div>
           <div class="form-group">
             <label for="muc-do">Mức độ</label>
-            <select class="form-control" id="muc-do">
-              <option>Khó</option>
-              <option>Dễ</option>
+            <select class="form-control" id="muc-do" ngModel name="levelId">
+              <option value="0">Chọn mức độ</option>
+              <option value="1">Khó</option>
+              <option value="2">Dễ</option>
             </select>
           </div>
           <div class="form-group">
             <label for="so-cau-hoi">Số lượng câu hỏi</label>
-            <input type="number" class="form-control" id="so-cau-hoi">
+            <input type="number" class="form-control" ngModel id="so-cau-hoi" name="numberOfQuestion">
           </div>
           <div class="form-group">
             <label for="tong-diem">Tổng điểm</label>
-            <input type="number" class="form-control" id="tong-diem">
+            <input type="number" class="form-control" ngModel id="tong-diem" name="totalScore">
           </div>
+          <button type="submit" mat-raised-button color="primary">Xác nhận</button>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" mat-raised-button data-dismiss="modal">Close</button>
-        <button type="button" mat-raised-button color="primary">Xác nhận</button>
       </div>
     </div>
   </div>

@@ -6,13 +6,16 @@ import { TaoCauHoiComponent } from './tao-cau-hoi/tao-cau-hoi.component';
 import { TaoDeCuongComponent } from './tao-de-cuong/tao-de-cuong.component';
 import { TaoCauTrucComponent } from './tao-cau-truc/tao-cau-truc.component';
 import { MaterialModule } from '../../../material.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
   imports: [
     CommonModule,
     CongViecRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [],
   declarations: [
