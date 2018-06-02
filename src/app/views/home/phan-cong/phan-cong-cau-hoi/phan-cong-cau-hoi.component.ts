@@ -96,7 +96,7 @@ export class PhanCongCauHoiComponent implements OnInit, OnDestroy {
       && (this.selectedSubject)
       && (this.selectedTeacher)
       && (this.listChapterSelected)
-      && (this.numberQuestion >= 1)
+      && (this.numberQuestion >= 0)
       && (this.dueDate &&
         this.dueDate !== NaN));
     // console.log('----');
