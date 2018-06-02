@@ -10,13 +10,13 @@ const routes: Routes = [
     path: '',
     component: ChiTietComponent
   }, {
-    path: 'tao-cau-hoi',
+    path: '2/:subjectId',
     component: TaoCauHoiComponent
   }, {
-    path: 'tao-de-cuong',
+    path: '1/:subjectId',
     component: TaoDeCuongComponent
   }, {
-    path: 'tao-cau-truc',
+    path: '3/:subjectId',
     component: TaoCauTrucComponent
   }
 ];

@@ -8,10 +8,7 @@
         <table class="table table-hover">
           <thead class="text-center">
             <tr>
-              <!-- <th scope="col">Mã công việc</th> -->
               <th scope="col">Tên môn học</th>
-              <!-- <th scope="col">Ảnh đại diện</th> -->
-              <!-- <th scope="col">Tên giảng viên</th> -->
               <th scope="col">Loại công việc</th>
               <th scope="col">Thời gian</th>
               <th scope="col">Chi tiết công việc</th>
@@ -20,21 +17,18 @@
           </thead>
           <tbody class="text-center">
             <tr *ngFor="let job of jobs">
-              <!-- <th scope="row">1</th> -->
               <td>{{job?.subject?.subjectName || 'Tên môn học'}}</td>
-              <!-- <td> </td> -->
-              <!-- <td></td> -->
-              <td>Tạo câu hỏi</td>
+              <td>{{job?.jobType?.jobTypeName}}</td>
               <td>
                 <span class="badge badge-pill badge-success">{{job?.startTime | date:"dd/MMM/y"}}</span>
                 <i class="fas fa-arrow-right"></i>
                 <span class="badge badge-pill badge-danger">{{job?.endTime | date:"dd/MMM/y"}}</span>
               </td>
               <td>
-                <button   mat-raised-button color="primary" data-toggle="modal" data-target=".xemchitiet-modal-lg">Chi tiết</button>
+                <button mat-raised-button color="primary" data-toggle="modal" data-target=".xemchitiet-modal-lg">Chi tiết</button>
               </td>
               <td>
-                <button mat-raised-button color="primary">Tiến hành</button>
+                <button mat-raised-button color="primary" [routerLink]="['/cong-viec/' + job?.jobTypeId + '/' + job?.subject?.subjectId]" >Tiến hành</button>
               </td>
             </tr>
           </tbody>
