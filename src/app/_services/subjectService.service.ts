@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { ConfigValue } from './../_helpers/config-value';
 import { HttpClient } from '@angular/common/http';
 import { OnInit, Injectable } from '@angular/core';
+import { Chapter } from '../_models';
 @Injectable()
 export class SubjectService {
 
@@ -29,5 +30,18 @@ export class SubjectService {
         );
     }
 
+    getListChapterBySubjectId(subjectId: number): Observable<any> {
+      return this.http.get(this.config.url_port + `/chapter/${subjectId}`).pipe(map(
+        (data: any) => data = data ? data : []
+    ));
+    }
+
+    createChapter(chapter: Chapter): any {
+      return this.http.post(this.config.url_port + `/chapter/create`, {
+        chapterName: chapter.chapterName,
+        describe: chapter.describe,
+        subjectId: chapter.subjectId
+      });
+    }
 
 }

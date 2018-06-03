@@ -3,40 +3,34 @@
   Khoa Công nghệ Thông tin
 
   <p class="text-right">
-    <button type="button" mat-raised-button color="accent" data-toggle="modal" data-target="#modalThem">
-      <i class="fas fa-plus-circle"></i>
+    <button type="button" mat-fab color="accent" data-toggle="modal" data-target="#modalThem">
+      <i class="fas fa-plus-circle fa-lg"></i>
     </button>
   </p>
 
-  <mat-card class="card card-content">
-    <div class="card-body">
-      <div id="accordion">
-        <div class="card">
-          <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseChuong1" aria-expanded="true" aria-controls="collapseChuong1">
-                Chương 1
-              </button>
-            </h5>
-          </div>
-          <div id="collapseChuong1" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="card-body">
-              Nội dung chương 1
-            </div>
-          </div>
-        </div>
-      </div>
-      <p class="text-right m-3">
-        <button type="submit" mat-raised-button color="primary">
-          Nộp bài
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let item of chapters">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{item.chapterName}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>{{item.describe}}</p>
+      <mat-action-row>
+        <button mat-raised-button color="warn">
+          <i class="fas fa-trash"></i>
         </button>
-      </p>
-    </div>
-  </mat-card>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <div class="text-right m-3">
+    <button type="submit" mat-raised-button color="primary">
+      Nộp bài
+    </button>
+  </div>
 </div>
+
 
 <div class="modal fade" id="modalThem" tabindex="-1" role="dialog" aria-labelledby="modalThem" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -48,22 +42,20 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
           <div class="form-group">
-            <label for="tieu-de">
-              Tiêu đề
-            </label>
-            <input class="form-control" id="tieu-de">
+            <label for="tieu-de">Tiêu đề</label>
+            <input class="form-control" ngModel id="tieu-de" name="chapterName">
           </div>
           <div class="form-group">
             <label for="mo-ta">Mô tả</label>
-            <textarea class="form-control" id="mo-ta" rows="3"></textarea>
+            <textarea class="form-control" ngModel id="mo-ta" name="describe" rows="3"></textarea>
           </div>
+          <button type="submit" mat-raised-button color="primary">Xác nhận</button>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" mat-raised-button data-dismiss="modal">Close</button>
-        <button type="button" mat-raised-button color="primary">Xác nhận</button>
       </div>
     </div>
   </div>
