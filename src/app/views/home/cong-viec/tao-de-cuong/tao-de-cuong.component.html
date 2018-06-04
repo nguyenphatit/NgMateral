@@ -12,12 +12,13 @@
     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let item of chapters">
       <mat-expansion-panel-header>
         <mat-panel-title>
+
           {{item.chapterName}}
         </mat-panel-title>
       </mat-expansion-panel-header>
       <p>{{item.describe}}</p>
       <mat-action-row>
-        <button mat-raised-button color="warn">
+        <button mat-raised-button color="warn" (click)="openDialog(item.chapterId, item.chapterName)">
           <i class="fas fa-trash"></i>
         </button>
       </mat-action-row>
@@ -30,7 +31,6 @@
     </button>
   </div>
 </div>
-
 
 <div class="modal fade" id="modalThem" tabindex="-1" role="dialog" aria-labelledby="modalThem" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">

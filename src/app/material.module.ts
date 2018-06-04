@@ -17,6 +17,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatDividerModule,
     MatStepperModule,
     MatTooltipModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
@@ -57,7 +59,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatDividerModule,
     MatStepperModule,
     MatTooltipModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule
   ],
 })
 export class MaterialModule { }

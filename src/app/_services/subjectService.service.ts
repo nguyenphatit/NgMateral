@@ -36,7 +36,7 @@ export class SubjectService {
     ));
     }
 
-    createChapter(chapter: Chapter): any {
+    createChapter(chapter: Chapter): Observable<any> {
       return this.http.post(this.config.url_port + `/chapter/create`, {
         chapterName: chapter.chapterName,
         describe: chapter.describe,
