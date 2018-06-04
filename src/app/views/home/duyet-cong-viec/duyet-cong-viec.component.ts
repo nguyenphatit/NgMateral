@@ -59,5 +59,4 @@ export class DuyetCongViecComponent implements OnInit {
       this.isCreateQuestion = true;
     }
   }
-
 }

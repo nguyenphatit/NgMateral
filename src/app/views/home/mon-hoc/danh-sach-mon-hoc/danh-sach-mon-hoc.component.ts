@@ -8,11 +8,27 @@ import { Subject } from '../../../../_models/subject';
 
 
 export class DanhSachMonHocComponent implements OnInit {
-  currentPage = 1;
-  size = 10;
-  numberOfRecord = 0;
-  numberOfPage = 0;
   subjects: Array<Subject>;
+  //
+  numberOfRecord: number;
+  numberOfPage: number;
+  current_page = 1;
+  collectionPageIndex;
+  limit = 3;
+  page_show = true;
+  movePage(page: number): void {
+    this.page_show = false;
+    this.current_page = page;
+    this.loadData();
+    this.page_show = true;
+  }
+  limitPerPage(limit: number): void {
+    this.page_show = false;
+    this.limit = limit;
+    this.current_page = 1;
+    this.loadData();
+    this.page_show = true;
+  }
   constructor(private teacherService: TeacherService,
     private router: Router,
     private route: ActivatedRoute) { }
@@ -21,10 +37,11 @@ export class DanhSachMonHocComponent implements OnInit {
     this.loadData();
   }
   loadData() {
-    this.teacherService.getListSubjectOfTeacherEmailFromToken(this.currentPage, this.size).subscribe((data: any) => {
+    this.teacherService.getListSubjectOfTeacherEmailFromToken(this.current_page, this.limit).subscribe((data: any) => {
       this.subjects = data.listOfResult;
       this.numberOfPage = data.numberOfPage;
       this.numberOfRecord = data.numberOfRecord;
+      this.collectionPageIndex = new Array(this.numberOfPage).fill(0);
       // console.log(data);
     });
   }

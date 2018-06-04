@@ -22,9 +22,9 @@ export class TeacherService {
         }));
     }
     getListDepartmentOfTeacherEmailFromToken(): Observable<any> {
-        return this.http.get(this.config.url_port + `/teacher/departments`).pipe( catchError(e => {
+        return this.http.get(this.config.url_port + `/teacher/departments`).pipe(catchError(e => {
             // noti .setNOttt
-             return of([]);
+            return of([]);
 
         }));
     }
