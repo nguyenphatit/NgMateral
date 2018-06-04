@@ -2,57 +2,99 @@
   <mat-card class="card card-content">
     <div class="card-header">
       <h5 class="card-title font-weight-bold text-uppercase">Công việc</h5>
+      <div class="form-group  right">
+        <p>Loại công việc</p>
+        <select class="form-control" [(ngModel)]="selectedJobTypeId" (change)="loadData()">
+          <option value="0">Tất cả</option>
+          <option *ngFor="let jobType of jobTypes | async" [value]="jobType?.jobTypeId">{{jobType?.jobTypeName}}</option>
+        </select>
+      </div>
+      <div class="form-group  right">
+        <p>Trạng thái</p>
+        <select class="form-control" [(ngModel)]="selectJobStatus" (change)="loadData()">
+          <option value="0">Chưa hoàn thành</option>
+          <option value="1">Hoàn thành</option>
+        </select>
+      </div>
     </div>
     <div class="card-body">
       <div class="table-responsive">
         <table class="table table-hover">
           <thead class="text-center">
             <tr>
-              <th scope="col">Mã công việc</th>
-              <th scope="col">Tên công việc</th>
-              <th scope="col">Ảnh đại diện</th>
-              <th scope="col">Tên giảng viên</th>
+              <th scope="col">Môn học</th>
+              <th scope="col">Giảng viên</th>
               <th scope="col">Loại công việc</th>
               <th scope="col">Thời gian</th>
               <th scope="col">Chi tiết công việc</th>
-              <th scope="col">Trạng thái công việc</th>
-              <th scope="col">Tiến độ công việc</th>
+              <th scope="col" *ngIf="selectJobStatus==0">Trạng thái công việc</th>
+              <th scope="col" *ngIf="selectJobStatus==0">Tiến độ công việc</th>
             </tr>
           </thead>
           <tbody class="text-center">
-            <tr>
-              <th scope="row">1</th>
-              <td>Hệ thống thông tin</td>
-              <td> </td>
-              <td>Trần Lê Như Quỳnh</td>
-              <td>Tạo câu hỏi</td>
+            <tr *ngFor="let job of jobs">
+              <td>{{job?.subject?.subjectName}}</td>
+              <td>img/{{job?.teacher?.lastName}}</td>
+              <td>{{job?.jobType?.jobTypeName}}</td>
               <td>
-                <span class="badge badge-pill badge-success">26/04/2018</span>
+                <span class="badge badge-pill badge-success">{{job?.startTime | date:"dd/MMM/y"}}</span>
                 <i class="fas fa-arrow-right"></i>
-                <span class="badge badge-pill badge-danger">27/04/2018</span>
+                <span class="badge badge-pill badge-danger">{{job?.endTime | date:"dd/MMM/y"}}</span>
               </td>
               <td>
-                <button mat-raised-button color="primary" data-toggle="modal" data-target=".xemchitiet-modal-lg">Chi tiết</button>
+                <button mat-raised-button color="primary" (click)="jobDetail(job?.jobId)" data-toggle="modal" data-target=".xemchitiet-modal-lg">Chi tiết</button>
               </td>
-              <td>
+              <td *ngIf="selectJobStatus==0">
                 <div class="form-group">
-                  <select class="form-control">
-                    <option>Hoàn thành</option>
-                    <option>Chưa hoàn thành</option>
+                  <select class="form-control" [(ngModel)]="job.status">
+                    <option value="0">Chưa hoàn thành</option>
+                    <option value="1">Hoàn thành</option>
                   </select>
                 </div>
               </td>
-              <td>
+              <td *ngIf="selectJobStatus==0">
                 <div class="form-group">
-                  <select class="form-control">
-                    <option>Hoàn thành</option>
-                    <option>Chưa hoàn thành</option>
+                  <select class="form-control" [(ngModel)]="job.subject.status">
+                    <option value="0">Chưa hoàn thành</option>
+                    <option value="1">Hoàn thành</option>
                   </select>
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
+        <nav *ngIf="page_show" aria-label="Page navigation example">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-1 col-xl-1 mb-2">
+              <div class="form-group">
+                <label for="limitPP">Hiển thị</label>
+                <select class="form-control" id="limitPerPage" [(ngModel)]="limit" (change)="limitPerPage($event.target.value)">
+                  <option value="3">3</option>
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 offset-lg-5 offset-xl-5">
+              <ul class="pagination justify-content-end">
+                <li *ngIf="(current_page > 1) && (numberOfPage>1)" class="page-item">
+                  <a class="page-link" (click)=(movePage(current_page-1))>
+                    <!-- <i class="fas fa-angle-double-left"></i> -->&laquo;
+                  </a>
+                </li>
+                <li *ngFor="let item of collectionPageIndex; let i = index" [class]="'page-item '+[(i+1)==current_page? 'text-danger active ': '' ]">
+                  <a class="page-link" (click)=(movePage(i+1))>{{i+1}}</a>
+                </li>
+                <li *ngIf="(current_page < numberOfPage) && (numberOfPage > 1)" class="page-item">
+                  <a class="page-link" (click)=(movePage(current_page+1))>
+                    <!-- <i class="fas fa-angle-double-right"></i> -->&raquo;
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
       </div>
     </div>
   </mat-card>
@@ -60,9 +102,9 @@
 
 <div class="modal fade xemchitiet-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+    <div *ngIf="jobContentDetail" class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Tạo cấu trúc đề thi</h5>
+        <h5 class="modal-title">{{jobContentDetail?.jobType?.jobTypeName}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -70,59 +112,31 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="macongviec">Mã công việc</label>
-            <input type="text" class="form-control" id="macongviec" value="1" disabled="disabled">
-          </div>
-          <div class="form-group">
-            <label for="mamon">Mã môn</label>
-            <input type="text" class="form-control" id="mamon" value="2" disabled="disabled">
-          </div>
-          <div class="form-group">
-            <label for="tenmon">Tên môn</label>
+            <label for="tenmon">{{jobContentDetail?.subject?.subjectName}}</label>
             <input type="text" class="form-control" id="tenmon" value="HTTTQL" disabled="disabled">
           </div>
           <div class="form-group">
-            <label for="giangvien">Giảng viên</label>
-            <input type="text" class="form-control" id="giangvien" value="Trần Lê Như Quỳnh" disabled="disabled">
-          </div>
-          <div class="form-group">
-            <label for="loaicongviec">Loại công việc</label>
-            <input type="text" class="form-control" id="loaicongviec" value="Tạo câu hỏi" disabled="disabled">
-          </div>
-          <div class="form-group">
             <label for="ngaybatdau">Ngày bắt đầu</label>
-            <input type="date" class="form-control" id="ngaybatdau" value="26/04/2018" disabled="disabled">
+            <input type="text" class="form-control" id="ngaybatdau" [value]="jobContentDetail?.startTime | date: 'dd/MMM/y'" disabled="disabled">
           </div>
           <div class="form-group">
             <label for="ngayketthuc">Ngày kết thúc</label>
-            <input type="date" class="form-control" id="ngayketthuc" value="27/04/2018" disabled="disabled">
+            <input type="text" class="form-control" id="ngayketthuc" [value]="jobContentDetail?.endTime | date: 'dd/MMM/y'" disabled="disabled">
           </div>
           <div class="form-group">
             <label for="noidungcongviec">Nội dung công việc</label>
             <textarea class="form-control" id="noidungcongviec" rows="3" disabled="disabled">Tạo câu hỏi</textarea>
           </div>
-          <h5 class="font-weight-bold">Chi tiết</h5>
-          <div class="form-group">
-            <div class="form-row">
+          <div *ngIf="isCreateQuestion" class="form-group">
+            <h5 class="font-weight-bold">Chi tiết</h5>
+            <div *ngFor="let createQuestion of questionDetail | async" class="form-row">
               <div class="col">
-                <label for="c1c1">Chương 1</label>
-                <input type="text" class="form-control" id="c1c1" value="Chapter 1" disabled="disabled">
+                <label for="c1c1">{{createQuestion?.chapter?.chapterName}}</label>
+                <input type="text" class="form-control" id="c1c1" [value]="createQuestion?.chapter?.describe" disabled="disabled">
               </div>
               <div class="col">
                 <label for="c1s1">Số lượng câu hỏi</label>
-                <input type="text" class="form-control" id="c1s1" value="10" disabled="disabled">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col">
-                <label for="c2c2">Chương 2</label>
-                <input type="text" class="form-control" id="c2c2" value="Chapter 2" disabled="disabled">
-              </div>
-              <div class="col">
-                <label for="c2s2">Số lượng câu hỏi</label>
-                <input type="text" class="form-control" id="c2s2" value="10" disabled="disabled">
+                <input type="text" class="form-control" id="c1s1" [value]="createQuestion?.amount" disabled="disabled">
               </div>
             </div>
           </div>
