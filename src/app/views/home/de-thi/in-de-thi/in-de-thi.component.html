@@ -47,9 +47,9 @@
         </div>
         <div class="col-sm-12 col-md-12 col-lg-6">
           <div class="form-group row">
-            <label for="subjectId" class="col-sm-3 col-form-label text-right">Môn học</label>
+            <label for="subject" class="col-sm-3 col-form-label text-right">Môn học</label>
             <div class="col-sm-9">
-              <input class="form-control" [(ngModel)]="e.subjectId" name="subjectId" id="subjectId">
+              <input class="form-control" [(ngModel)]="e.subject.subjectName" name="subject" id="subject">
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@
       </div>
       <br/>
       <div style="text-align: center;">
-        <span style="text-transform: uppercase; font-size: 16px; font-weight: bold;">Đề thi môn {{e.subjectId}} học kỳ {{semeter}}</span>
+        <span style="text-transform: uppercase; font-size: 16px; font-weight: bold;">Đề thi môn {{e.subject.subjectName}} học kỳ {{semeter}}</span>
         <br/>
         <p>
           Ngày thi: {{e.timeDay | date: "dd/MM/y" }}
@@ -100,25 +100,17 @@
       </div>
       <div style="margin-top: 30px">
 
-        <div style="margin-bottom: 10px">
+        <div *ngFor="let detail of examTestDetailModel; let idetail = index" [attr.data-index]="idetail" style="margin-bottom: 10px">
           <span>
-            <b>Câu hỏi:</b>
-            Nội dung câu hỏi nội dung câu hỏi nội dung câu hỏi nội dung câu hỏi nội dung câu hỏi nội dung câu hỏi nội dung câu hỏi nội
-            dung câu hỏi
+            <b>Câu hỏi {{idetail+1}}:</b>
+            {{detail?.question?.content}}
           </span>
           <br/>
-          <span>
-            <b>A.</b> Đáp án A</span>
-          <br/>
-          <span>
-            <b>B.</b> Đáp án B</span>
-          <br/>
-          <span>
-            <b>C.</b> Đáp án C</span>
-          <br/>
-          <span>
-            <b>D.</b> Đáp án D</span>
-          <br/>
+          <div *ngFor="let answer of detail.question.answers; let ianswer = index" [attr.data-index]="ianswer">
+            <span>
+              <b>{{(ianswer == 0) ? 'A' : (ianswer == 1) ? 'B' : (ianswer ==2) ? 'C' : 'D'}}.</b> {{answer.content}}</span>
+            <br/>
+          </div>
         </div>
 
       </div>

@@ -29,6 +29,8 @@ import { MaterialModule } from './material.module';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpErrorFilter } from './_helpers/HttpErrorInterceptor';
 import { ExamTestService } from './_services/examtest.service';
+import { ExamTestDetailService } from './_services/examTestDetail.service';
+import { DepartmentService } from './_services/department.serive';
 
 const APP_COMPONENTS = [
   HeaderComponent,
@@ -68,6 +70,8 @@ const APP_CONTAINERS = [
     QuestionService,
     SubjectService,
     ExamTestService,
+    ExamTestDetailService,
+    DepartmentService,
     NotifyCenterService,
     StructureTestDetailService,
     BaseRequestOptions,

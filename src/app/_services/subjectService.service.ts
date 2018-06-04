@@ -44,4 +44,10 @@ export class SubjectService {
       });
     }
 
+    getSubjectsDataByDepartmentId(departmentId: number): Observable<any> {
+      return this.http.get(this.config.url_port + `/subject/${departmentId}/subjects`).pipe(map(
+        (data: any) => data = data ? data : []
+      ));
+    }
+
 }
