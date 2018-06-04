@@ -5,13 +5,16 @@ import { DanhSachDeThiComponent } from './danh-sach-de-thi/danh-sach-de-thi.comp
 import { TaoDeThiComponent } from './tao-de-thi/tao-de-thi.component';
 import { InDeThiComponent } from './in-de-thi/in-de-thi.component';
 import { MaterialModule } from '../../../material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   imports: [
     CommonModule,
     DeThiRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [],
   declarations: [
