@@ -1,5 +1,6 @@
+import { JobService } from './../../../_services/job.service';
 import { Component, OnInit } from '@angular/core';
-
+import { TeacherService } from '../../../_services/teacherService.service';
 @Component({
   templateUrl: 'soan-cau-hoi.component.html'
 })
@@ -9,9 +10,14 @@ export class SoanCauHoiComponent implements OnInit {
   isTN = true;
   numAnswer: Number;
 
-  constructor() { }
+  constructor(private teacherService: TeacherService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.teacherService.getSubjectOfTeacher().subscribe((data: any) => {
+      console.log(data);
+    });
+
+  }
 
   openTL(): void {
     this.isTL = false;
@@ -22,8 +28,8 @@ export class SoanCauHoiComponent implements OnInit {
     this.isTL = true;
     this.isTN = false;
   }
-   numberQuestion(number: number) {
-     this.numAnswer = number;
-     console.log(number);
-   }
+  numberQuestion(number: number) {
+    this.numAnswer = number;
+    console.log(number);
+  }
 }

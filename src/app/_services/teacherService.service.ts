@@ -6,6 +6,7 @@ import { ConfigValue } from './../_helpers/config-value';
 
 @Injectable()
 export class TeacherService {
+
     constructor(private http: HttpClient, private config: ConfigValue) {
 
     }
@@ -37,6 +38,9 @@ export class TeacherService {
         return this.http.get(this.config.url_port + `/teacher/jobs`).pipe(map((data: any) => {
             return data;
         }));
+    }
+    getSubjectOfTeacher(): Observable<any> {
+        return this.http.get(this.config.url_port + `/subject/of-teacher`).pipe(map((data: any) => data ? data : []));
     }
 
 }
