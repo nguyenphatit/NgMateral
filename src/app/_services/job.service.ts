@@ -6,7 +6,20 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class JobService {
-
+  getJobQuestionDetail(jobId: number): Observable<any> {
+    return this.http.get(this.config.url_port + `/job/${jobId}/question-detail`);
+  }
+  getALLJobType(): Observable<any> {
+    return this.http.get(this.config.url_port + '/job-type/all');
+  }
+  /**
+       * status [0,1]
+       *
+       * @return an `Observable` of the body as an `Object`.
+       */
+  getListJobByManageTeacher(jobTypeId: number, status: number, current_page: number, limit: number): Observable<any> {
+    return this.http.get(this.config.url_port + `/job/browse-job/${jobTypeId}/${status}?page=${current_page}&size=${limit}`);
+  }
   constructor(private http: HttpClient, private config: ConfigValue) { }
   addOutLine(job: Job): Observable<any> {
     return this.http.post(this.config.url_port + `/job/add-out-line`, {
