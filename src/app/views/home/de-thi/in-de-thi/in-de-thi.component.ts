@@ -4,6 +4,7 @@ import { NotifyCenterService } from '../../../../_services/notify-center.service
 import { ExamTestService } from '../../../../_services/examtest.service';
 import { ExamTest } from '../../../../_models/examtest';
 import { SubjectService } from '../../../../_services/subjectService.service';
+import { ExamTestDetailService } from '../../../../_services/examTestDetail.service';
 
 @Component({
   templateUrl: 'in-de-thi.component.html'
@@ -13,7 +14,7 @@ export class InDeThiComponent implements OnInit {
   examTestId: number;
   examTest: any;
   examTestModel: any;
-  subjectModel: any;
+  examTestDetailModel: any;
   nameshool: string;
   semeter: number;
   time: number;
@@ -24,13 +25,14 @@ export class InDeThiComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private examTestService: ExamTestService,
-    private subjectService: SubjectService,
+    private examTestDetailSerive: ExamTestDetailService,
     private notifyCenterService: NotifyCenterService) { }
 
   ngOnInit() {
     this.examTest = this.route.params.subscribe(params => {
       this.examTestId = +params['examTestId'];
       this.loadDataExamTest();
+      this.loadDataExamTestDetail();
     });
   }
 
@@ -55,6 +57,12 @@ export class InDeThiComponent implements OnInit {
       this.examTestModel = data;
       console.log(this.examTestModel);
     });
+  }
 
+  loadDataExamTestDetail(): void {
+    this.examTestDetailSerive.getExamTestDetailById(this.examTestId).subscribe(data => {
+      this.examTestDetailModel = data;
+      console.log(this.examTestDetailModel);
+    });
   }
 }

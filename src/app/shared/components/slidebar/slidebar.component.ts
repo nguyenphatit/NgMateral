@@ -49,6 +49,7 @@ export class SlidebarComponent implements OnInit {
     this.mapMenuRole.set('/them-giang-vien', Array('fas fa-plus', 'Thêm giảng viên'));
     this.mapMenuRole.set('/them-bo-mon', Array('fas fa-plus', 'Thêm bộ môn'));
     this.mapMenuRole.set('/them-mon-hoc', Array('fas fa-plus', 'Thêm môn học'));
+    this.mapMenuRole.set('/de-thi', Array('fas fa-edit', 'Tạo đề thi'));
   }
 
   addMenuForTbm(): void {
@@ -56,7 +57,6 @@ export class SlidebarComponent implements OnInit {
     this.mapMenuRole.set('/bo-mon/danh-sach-bo-mon', Array('fas fa-archive', 'Bộ môn'));
     this.mapMenuRole.set('/phan-cong', Array('fab fa-forumbee', 'Phân công'));
     this.mapMenuRole.set('/duyet-cong-viec', Array('fas fa-check', 'Duyệt'));
-    this.mapMenuRole.set('/de-thi', Array('fas fa-edit', 'Tạo đề thi'));
   }
 
   addMenuForGv(): void {
