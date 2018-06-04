@@ -28,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpErrorFilter } from './_helpers/HttpErrorInterceptor';
+import { ExamTestService } from './_services/examtest.service';
 
 const APP_COMPONENTS = [
   HeaderComponent,
@@ -66,6 +67,7 @@ const APP_CONTAINERS = [
     TeacherService,
     QuestionService,
     SubjectService,
+    ExamTestService,
     NotifyCenterService,
     StructureTestDetailService,
     BaseRequestOptions,

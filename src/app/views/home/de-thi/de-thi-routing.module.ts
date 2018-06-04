@@ -13,7 +13,7 @@ const routes: Routes = [
     path: 'tao-de-thi',
     component: TaoDeThiComponent
   }, {
-    path: 'in-de-thi',
+    path: 'in-de-thi/:examTestId',
     component: InDeThiComponent
   }
 ];
