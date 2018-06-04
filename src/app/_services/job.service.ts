@@ -46,4 +46,7 @@ export class JobService {
         endTime: job.endTime
       });
   }
+  getJobsOfTeacher(page: Number, size: Number): Observable<any> {
+    return this.http.get(this.config.url_port + `/job/teacher`);
+}
 }
