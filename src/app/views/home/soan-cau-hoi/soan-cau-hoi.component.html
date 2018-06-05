@@ -7,9 +7,9 @@
       <div class="m-3">
         <div class="form-group">
           <label for="mon-hoc">Môn học</label>
-          <select class="form-control" id="mon-hoc">
-            <option>Chọn môn học</option>
-            <option>HTTTQL</option>
+          <select class="form-control" id="mon-hoc" #monHoc (change)="changeSubject(monHoc.value)">
+            <option value="0">Chọn môn học</option>
+            <option *ngFor="let subject of subjects" [value]="subject?.subjectId">{{subject?.subjectName}}</option>
           </select>
         </div>
         <p class="text-right">
@@ -17,12 +17,11 @@
             <i class="fas fa-plus"></i>
           </button>
         </p>
-        <h5>Tổng số câu: 5</h5>
+        <h5>Tổng số câu: {{numberOfRecord || 0}}</h5>
         <div class="table-responsive">
           <table class="table table-hover">
             <thead class="text-center">
               <tr>
-                <th scope="col">STT</th>
                 <th scope="col">Mã câu hỏi</th>
                 <th scope="col">Nội dung</th>
                 <th scope="col">Trạng thái</th>
@@ -31,9 +30,8 @@
               </tr>
             </thead>
             <tbody class="text-center">
-              <tr>
-                <th scope="row">1</th>
-                <td>HTTTQL</td>
+              <tr *ngFor="let question of questions">
+                <td>{{question?.questionId}}</td>
                 <td>ABC</td>
                 <td>OK</td>
                 <td>Chương 1</td>
@@ -41,6 +39,39 @@
               </tr>
             </tbody>
           </table>
+          <nav *ngIf="page_show" aria-label="Page navigation example">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-1 col-xl-1 mb-2">
+                <div class="form-group">
+                  <label for="limitPP">Hiển thị</label>
+                  <select class="form-control" id="limitPerPage" [(ngModel)]="limit" (change)="limitPerPage($event.target.value)">
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 offset-lg-5 offset-xl-5">
+                <ul class="pagination justify-content-end">
+                  <li *ngIf="(current_page > 1) && (numberOfPage>1)" class="page-item">
+                    <a class="page-link" (click)=(movePage(current_page-1))>
+                      <!-- <i class="fas fa-angle-double-left"></i> -->&laquo;
+                    </a>
+                  </li>
+                  <li *ngFor="let item of collectionPageShow" [class]="'page-item '+[item==current_page? 'text-danger active ': '' ]">
+                    <!-- <a *ngIf="numberShowPage(i+1,current_page,collectionPageIndex.length)" class="page-link" (click)=(movePage(i+1))>{{i+1}}</a> -->
+                    <a class="page-link" (click)=(movePage(item))>{{item}}</a>
+                  </li>
+                  <li *ngIf="(current_page < numberOfPage) && (numberOfPage > 1)" class="page-item">
+                    <a class="page-link" (click)=(movePage(current_page+1))>
+                      <!-- <i class="fas fa-angle-double-right"></i> -->&raquo;
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
         </div>
       </div>
       <p class="text-right">
