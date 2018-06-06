@@ -14,6 +14,7 @@ import { DuyetCongViecComponent } from './duyet-cong-viec/duyet-cong-viec.compon
 import { SoanCauHoiComponent } from './soan-cau-hoi/soan-cau-hoi.component';
 import { MaterialModule } from '../../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DuyetCauHoiComponent } from './duyet-cau-hoi/duyet-cau-hoi.component';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ThemBoMonComponent,
     ThemMonHocComponent,
     DuyetCongViecComponent,
+    DuyetCauHoiComponent,
     SoanCauHoiComponent,
   ],
   providers: [
