@@ -9,6 +9,7 @@ import { ThemMonHocComponent } from './them-mon-hoc/them-mon-hoc.component';
 import { DuyetCongViecComponent } from './duyet-cong-viec/duyet-cong-viec.component';
 import { ChiTietCongViecComponent } from './chi-tiet-cong-viec/chi-tiet-cong-viec.component';
 import { SoanCauHoiComponent } from './soan-cau-hoi/soan-cau-hoi.component';
+import { DuyetCauHoiComponent } from './duyet-cau-hoi/duyet-cau-hoi.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,12 @@ const routes: Routes = [
   }, {
     path: 'soan-cau-hoi',
     component: SoanCauHoiComponent
+  }, {
+    path: 'duyet-cau-hoi',
+    component: DuyetCauHoiComponent
+  }, {
+    path: '**',
+    redirectTo: '/'
   }
 ];
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SubjectService } from '../../../../_services/subjectService.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   templateUrl: 'mon-hoc.component.html'
@@ -12,6 +12,7 @@ export class MonHocComponent implements OnInit {
   department: any;
 
   constructor(
+    private router: Router,
     private subjectService: SubjectService,
     private route: ActivatedRoute
   ) { }
@@ -19,7 +20,6 @@ export class MonHocComponent implements OnInit {
   ngOnInit() {
     this.department = this.route.params.subscribe(params => {
       this.departmentId = +params['departmentId'];
-      this.loadData();
     });
   }
 
