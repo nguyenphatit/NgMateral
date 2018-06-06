@@ -1,8 +1,11 @@
+import { Chapter } from './../_models/chapter';
+import { Question } from './../_models/question';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ConfigValue } from './../_helpers/config-value';
 import { HttpClient } from '@angular/common/http';
+import { Body } from '@angular/http';
 @Injectable()
 export class QuestionService {
     getQuestionOfTeacherCompile(subjectId: number, page: number, size: number): Observable<any> {
@@ -14,5 +17,13 @@ export class QuestionService {
     constructor(private http: HttpClient, private config: ConfigValue) { }
     getListQuestionByChapterIdPaging(chapterId: number, page: number, size: number): Observable<any> {
         return this.http.get(this.config.url_port + `/question/${chapterId}?page=${page}&size=${size}`).pipe(map((data) => data));
+    }
+    insertQuestion(question: Question): Observable<any> {
+        return this.http.post(this.config.url_port + `/question/save`, {
+            chapterId: question.chapterId,
+            content: question.content,
+            levelId: question.levelId,
+            answers: question.answers
+        });
     }
 }
