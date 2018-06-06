@@ -27,52 +27,60 @@
                 <th scope="col">Trạng thái</th>
                 <th scope="col">Chương</th>
                 <th scope="col">Tổng số đáp án</th>
+                <th scope="col">Xóa</th>
               </tr>
             </thead>
             <tbody class="text-center">
               <tr *ngFor="let question of questions">
                 <td>{{question?.questionId}}</td>
-                <td>{{question?.content}}</td>
+                <td>
+                  <a href="#" data-toggle="modal" class="text" (click)="editQuestion(question?.questionId)" data-target="#editModal">{{question?.content}}</a>
+                </td>
                 <td>{{question?.status?"Đã xét":"Biên soạn"}} </td>
                 <td>{{question?.chapter?.chapterName}}</td>
                 <td>{{question?.answers?.length}}</td>
+                <td>
+                  <a href="javascript:void(0)" (click)="deleteQuestion(question?.questionId)">
+                    <i class="fa fa-trash-alt"></i>
+                  </a>
+                </td>
               </tr>
             </tbody>
           </table>
-          <nav *ngIf="page_show" aria-label="Page navigation example">
-            <div class="row">
-              <div class="col-sm-12 col-md-12 col-lg-1 col-xl-1 mb-2">
-                <div class="form-group">
-                  <label for="limitPP">Hiển thị</label>
-                  <select class="form-control" id="limitPerPage" [(ngModel)]="limit" (change)="limitPerPage($event.target.value)">
-                    <option value="3">3</option>
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 offset-lg-5 offset-xl-5">
-                <ul class="pagination justify-content-end">
-                  <li *ngIf="(current_page > 1) && (numberOfPage>1)" class="page-item">
-                    <a class="page-link" (click)=(movePage(current_page-1))>
-                      <!-- <i class="fas fa-angle-double-left"></i> -->&laquo;
-                    </a>
-                  </li>
-                  <li *ngFor="let item of collectionPageShow" [class]="'page-item '+[item==current_page? 'text-danger active ': '' ]">
-                    <!-- <a *ngIf="numberShowPage(i+1,current_page,collectionPageIndex.length)" class="page-link" (click)=(movePage(i+1))>{{i+1}}</a> -->
-                    <a class="page-link" (click)=(movePage(item))>{{item}}</a>
-                  </li>
-                  <li *ngIf="(current_page < numberOfPage) && (numberOfPage > 1)" class="page-item">
-                    <a class="page-link" (click)=(movePage(current_page+1))>
-                      <!-- <i class="fas fa-angle-double-right"></i> -->&raquo;
-                    </a>
-                  </li>
-                </ul>
+        </div>
+        <nav *ngIf="page_show" aria-label="Page navigation example">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-1 col-xl-1 mb-2">
+              <div class="form-group">
+                <label for="limitPP">Hiển thị</label>
+                <select class="form-control" id="limitPerPage" [(ngModel)]="limit" (change)="limitPerPage($event.target.value)">
+                  <option value="3">3</option>
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                </select>
               </div>
             </div>
-          </nav>
-        </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 offset-lg-5 offset-xl-5">
+              <ul class="pagination justify-content-end">
+                <li *ngIf="(current_page > 1) && (numberOfPage>1)" class="page-item">
+                  <a class="page-link" (click)=(movePage(current_page-1))>
+                    <!-- <i class="fas fa-angle-double-left"></i> -->&laquo;
+                  </a>
+                </li>
+                <li *ngFor="let item of collectionPageShow" [class]="'page-item '+[item==current_page? 'text-danger active ': '' ]">
+                  <!-- <a *ngIf="numberShowPage(i+1,current_page,collectionPageIndex.length)" class="page-link" (click)=(movePage(i+1))>{{i+1}}</a> -->
+                  <a class="page-link" (click)=(movePage(item))>{{item}}</a>
+                </li>
+                <li *ngIf="(current_page < numberOfPage) && (numberOfPage > 1)" class="page-item">
+                  <a class="page-link" (click)=(movePage(current_page+1))>
+                    <!-- <i class="fas fa-angle-double-right"></i> -->&raquo;
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
       </div>
       <p class="text-right">
         <button mat-raised-button color="primary">
@@ -81,6 +89,50 @@
       </p>
     </div>
   </mat-card>
+</div>
+<!-- form edit-->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalTitle">Chỉnh sửa</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form *ngIf="questionEdit">
+          <div class="form-group">
+            <label for="enoi-dung">Nôi dung</label>
+            <textarea class="form-control" id="enoi-dung" rows="3" [(ngModel)]="questionEdit.content" [name]="'question-content'+questionEdit.questionId"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="emuc-do">Mức độ</label>
+            <select class="form-control" id="emuc-do" name="muc-do-edit" [(ngModel)]="questionEdit.levelId">
+              <option value="1">Khó</option>
+              <option value="2">Dễ</option>
+            </select>
+          </div>
+          <div id="collapseTracNghiem">
+            <div *ngFor=" let answer of questionEdit?.answers; let i = index;">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <input type="checkbox" [name]="'correct-answer-edit'+ i" [(ngModel)]="answer.correctAnswer">
+                  </div>
+                </div>
+                <input type="text" class="form-control" [name]="'dap-an-edit' + i" [(ngModel)]="answer.content">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" mat-raised-button class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button type="button" mat-raised-button color="primary" (click)="updateQuestion()"  data-dismiss="modal" class="btn btn-primary">Lưu</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="modal fade" id="modalRow" tabindex="-1" role="dialog" aria-labelledby="modalRow" aria-hidden="true">
@@ -157,7 +209,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" mat-raised-button data-dismiss="modal" (click)="clearModal()">Close</button>
-        <button type="button" (click)="addQuestion()" mat-raised-button color="primary">Xác nhận</button>
+        <button type="button" (click)="addQuestion()" data-dismiss="modal" mat-raised-button color="primary">Xác nhận</button>
       </div>
     </div>
   </div>
