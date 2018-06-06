@@ -5,7 +5,6 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ConfigValue } from './../_helpers/config-value';
 import { HttpClient } from '@angular/common/http';
-import { Body } from '@angular/http';
 @Injectable()
 export class QuestionService {
     getQuestionOfTeacherCompile(subjectId: number, page: number, size: number): Observable<any> {
@@ -23,6 +22,22 @@ export class QuestionService {
             chapterId: question.chapterId,
             content: question.content,
             levelId: question.levelId,
+            answers: question.answers
+        });
+    }
+    deleteQuestionById(questionId: number): Observable<any> {
+        questionId = +questionId;
+        return this.http.post(this.config.url_port + `/question/delete`, { questionId: questionId });
+    }
+    updateQuestion(question: Question): Observable<any> {
+        return this.http.post(this.config.url_port + `/question/update`, {
+            questionId: question.questionId,
+            content: question.content,
+            chapterId: question.chapterId,
+            subjectId: question.subjectId,
+            levelId: question.levelId,
+            teacherCreateId: question.teacherCreateId,
+            status: question.status,
             answers: question.answers
         });
     }
