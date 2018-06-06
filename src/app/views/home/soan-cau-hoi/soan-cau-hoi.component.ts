@@ -8,6 +8,7 @@ import { TeacherService } from '../../../_services/teacherService.service';
 import { max } from 'rxjs/operators';
 import { stat } from 'fs';
 import { map } from 'rxjs/operators';
+import { forEach } from '@angular/router/src/utils/collection';
 @Component({
   templateUrl: 'soan-cau-hoi.component.html'
 })
@@ -22,6 +23,7 @@ export class SoanCauHoiComponent implements OnInit {
   subjectId = 0;
   question = new Question();
   contentAnswerTl;
+  questionEdit;
   //
   numberOfRecord: number;
   numberOfPage: number;
@@ -52,7 +54,7 @@ export class SoanCauHoiComponent implements OnInit {
     const start = Math.ceil(number_showPape / 2);
     const end = max_numberOfPage - (start - 1);
     if (current_page < start) {
-      arrays = this.fillRange(1, number_showPape);
+      arrays = this.fillRange(1, number_showPape > max_numberOfPage ? max_numberOfPage : number_showPape);
     } else if (current_page > end) {
       arrays = this.fillRange(max_numberOfPage - number_showPape + 1, max_numberOfPage);
     } else {
@@ -129,6 +131,8 @@ export class SoanCauHoiComponent implements OnInit {
     this.question.answers = this.numAnswer;
     this.questionService.insertQuestion(this.question).subscribe((data: any) => {
       console.log('Dữ liệu:', data);
+      this.notifyCenterService.sendNotifyCenter({ massage: 'Success!', status: null, details: null });
+      this.clearModal();
     });
   }
   clearModal() {
@@ -141,8 +145,28 @@ export class SoanCauHoiComponent implements OnInit {
     this.question.levelId = 1;
   }
   hasOneAnswerCorrect(answers: Array<Answer>): boolean {
-    answers.forEach((answer) => {
-      if (answer.correctAnswer) { return true; }
-    }); return false;
+    for (let index = 0; index < answers.length; index++) {
+      if (answers[index].correctAnswer) { return true; }
+    }
+    return false;
+  }
+  editQuestion(questionId: number) {
+    questionId = +questionId;
+    this.questionEdit = this.questions.find((question: Question) => question.questionId === questionId);
+  }
+  deleteQuestion(questionId: number) {
+    questionId = +questionId;
+    console.log(this.questions.find((question: Question) => question.questionId === questionId));
+    this.questionService.deleteQuestionById(questionId).subscribe((data: any) => {
+      this.notifyCenterService.sendNotifyCenter({ massage: 'Success!', status: null, details: null });
+    });
+  }
+  updateQuestion() {
+    if (this.questionEdit) {
+      this.questionService.updateQuestion(this.questionEdit).subscribe((data: any) => {
+        console.log(data);
+      });
+    }
+    this.questionEdit = undefined;
   }
 }
