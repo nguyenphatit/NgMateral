@@ -4,6 +4,8 @@ import { StrucTestDetail } from '../../../../_models';
 import { StructureTestDetailService } from '../../../../_services/structureTestDetailService.service';
 import { NotifyCenterService } from '../../../../_services/notify-center.service';
 import { NgForm } from '@angular/forms';
+import { identifierModuleUrl } from '@angular/compiler';
+import { element } from 'protractor';
 
 @Component({
   templateUrl: 'tao-cau-truc.component.html'
@@ -14,6 +16,9 @@ export class TaoCauTrucComponent implements OnInit {
   subject: any;
   structureTestDetail: any;
   chapter: any;
+  totalScore: number;
+  numberEasyQuestion: number;
+  numberDifficultyQuestion: number;
   // edit
   estructureTestId;
   echapterId;
@@ -38,21 +43,35 @@ export class TaoCauTrucComponent implements OnInit {
   }
 
   loadData(): void {
+    this.numberDifficultyQuestion = this.numberEasyQuestion = this.totalScore = 0;
     this.structureTestDetailService.getListStrucBySubjectId(this.subjectId).subscribe(data => {
       this.structureTestDetail = data;
-      console.log(this.structureTestDetail);
+      // console.log(this.structureTestDetail);
       if (this.structureTestDetail) { this.strucTestId = this.structureTestDetail[0].structureTestId; }
-
+      this.structureTestDetail.filter((x: StrucTestDetail) => x.levelId === 1).forEach((element2: StrucTestDetail) => {
+        this.numberDifficultyQuestion += element2.numberOfQuestion;
+        this.totalScore += element2.totalScore;
+      });
+      this.structureTestDetail.filter((x: StrucTestDetail) => x.levelId === 2).forEach((element1: StrucTestDetail) => {
+        this.numberEasyQuestion += element1.numberOfQuestion;
+        this.totalScore += element1.totalScore;
+      });
     });
   }
 
   // form edit
-  submitFormEdit(id: number) {
+  submitFormEdit(structureTestId: number, chapterId: number, levelId: number) {
     const std = new StrucTestDetail();
-    id = +id;
-    const tmp = this.structureTestDetail.find((item) => item.structureTestId === id);
+    structureTestId = +structureTestId;
+    levelId = +levelId;
+    chapterId = +chapterId;
+    const tmp = this.structureTestDetail.find(
+      (item) => item.structureTestId === structureTestId && item.levelId === levelId && item.chapterId === chapterId
+    );
+    console.log(tmp);
     this.structureTestDetailService.addstructureTestDetail(tmp).subscribe((data: any) => {
       this.notifyCenterService.sendNotifyCenter({ massage: data, status: 200, details: null });
+      this.loadData();
     });
   }
 
@@ -64,7 +83,7 @@ export class TaoCauTrucComponent implements OnInit {
     this.addStructureModel.levelId = f.value.levelId;
     this.addStructureModel.numberOfQuestion = f.value.numberOfQuestion;
     this.addStructureModel.totalScore = f.value.totalScore;
-    // console.log(this.addStructureModel);
+    console.log(this.addStructureModel);
     this.structureTestDetailService.addstructureTestDetail(this.addStructureModel).subscribe((data: any) => {
       this.notifyCenterService.sendNotifyCenter({ massage: data, status: 200, details: null });
     });

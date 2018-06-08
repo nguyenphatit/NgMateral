@@ -15,6 +15,7 @@ import { SoanCauHoiComponent } from './soan-cau-hoi/soan-cau-hoi.component';
 import { MaterialModule } from '../../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DuyetCauHoiComponent } from './duyet-cau-hoi/duyet-cau-hoi.component';
+import { UploadAvatarComponent } from './them-giang-vien/upload.component';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import { DuyetCauHoiComponent } from './duyet-cau-hoi/duyet-cau-hoi.component';
     DuyetCongViecComponent,
     DuyetCauHoiComponent,
     SoanCauHoiComponent,
+    UploadAvatarComponent
   ],
   providers: [
     {
