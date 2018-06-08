@@ -10,9 +10,9 @@
         </mat-card-title>
       </mat-card-header>
       <mat-card-content class="card-body">
-        <div class="row">
-          <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 col-left">
-            <form>
+        <form>
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 col-left">
               <div class="form-group">
                 <label for="bo-mon" class="font-weight-bold">Bộ môn</label>
                 <select id="bo-mon" class="form-control" ngModel name="departmentId">
@@ -52,30 +52,21 @@
                 <label for="address" class="font-weight-bold">Địa chỉ</label>
                 <textarea class="form-control" id="address" rows="3" ngModel name="address" placeholder="Nhập địa chỉ liên hệ"></textarea>
               </div>
-              <mat-card-actions class="text-right p-3 mr-3">
-                <button type="submit" mat-raised-button color="primary">Xác nhận</button>
-              </mat-card-actions>
-            </form>
-          </div>
-          <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 col-right upload-avatar text-center">
-            <div class="card">
-              <img class="card-img-top" [src]="avatar" alt="Card image cap">
-              <div class="card-body">
-                <form>
-                  <div class="input-group">
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="inputGroupFile04" (change)="onFileChange($event)">
-                      <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-                    </div>
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-secondary" type="button">Button</button>
-                    </div>
-                  </div>
-                </form>
+
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 col-right upload-avatar text-center">
+              <div class="card">
+                <!-- <img [src]="url_avatar" alt="Ảnh đại diện" class="img-thumbnail avatar-img"> -->
+                <div class="card-body">
+                  <app-upload-avatar (eventUp)="onUploadAvartar($event)"></app-upload-avatar>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+          <mat-card-actions class="text-right p-3 mr-3">
+            <button type="submit" mat-raised-button color="primary">Xác nhận</button>
+          </mat-card-actions>
+        </form>
       </mat-card-content>
     </mat-card>
   </div>

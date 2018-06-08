@@ -7,22 +7,34 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 
 export class ThemGiangVienComponent implements OnInit {
-  departmentModel: any;
+  // departmentModel: any;
+  url_avatar: string;
+  submitted = false;
+  userform: FormGroup;
 
   constructor(
-    private fb: FormBuilder,
-    private departmentServive: DepartmentService
   ) { }
 
   ngOnInit() {
-    this.getAllDepartment();
   }
 
-  getAllDepartment() {
-    this.departmentServive.getAllDepartment().subscribe((data: any) => {
-      this.departmentModel = data;
-      console.log(this.departmentModel);
-    });
+  onUploadAvartar(event) {
+    console.log(event);
+    if (event.res) {
+      const response = event.res.body;
+      // const data = JSON.parse(response);
+      // const auth = JSON.parse(data[0].fileProperties);
+      // console.log(auth.webContentLink);
+      // this.url_avatar = auth.webContentLink;
+      // console.log(this.url_avatar);
+      this.submitted = false;
+    }
+    if (event.submitted) {
+      console.log(event);
+      this.submitted = !event.submitted.value;
+    }
   }
+
+  // onSubmit(f)
 
 }
