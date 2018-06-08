@@ -14,4 +14,12 @@ export class DepartmentService {
       (data: any) => data = data ? data : []
     ));
   }
+
+  createDepartment(department: any): Observable<any> {
+    return this.http.post(this.config.url_port + `/department/create`, {
+      departmentName: department.departmentName,
+      facultyId: department.facultyId,
+      teacherManagementId: department.teacherManagementId
+    });
+  }
 }
