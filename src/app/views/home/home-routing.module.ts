@@ -61,7 +61,7 @@ const routes: Routes = [
     path: 'soan-cau-hoi',
     component: SoanCauHoiComponent
   }, {
-    path: 'duyet-cau-hoi',
+    path: 'duyet-cau-hoi/:teacherId',
     component: DuyetCauHoiComponent
   }, {
     path: '**',

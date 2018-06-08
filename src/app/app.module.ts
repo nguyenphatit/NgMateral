@@ -34,6 +34,8 @@ import { DepartmentService } from './_services/department.serive';
 import { FacultyService } from './_services/faculty.service';
 import { UploadAvatarComponent } from './views/home/them-giang-vien/upload.component';
 import { UploadFileService } from './_services/upload.service';
+import { CreateQuestion } from './_models/createQuestion';
+import { CreateQuestionService } from './_services/createQuestion.service';
 
 const APP_COMPONENTS = [
   HeaderComponent,
@@ -74,6 +76,7 @@ const APP_CONTAINERS = [
     SubjectService,
     ExamTestService,
     ExamTestDetailService,
+    CreateQuestionService,
     DepartmentService,
     FacultyService,
     UploadFileService,
