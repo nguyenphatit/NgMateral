@@ -117,7 +117,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
           <div class="form-group">
             <label for="chuong">Chương</label>
             <select class="form-control" id="ma-chuong" ngModel name="chapterId">

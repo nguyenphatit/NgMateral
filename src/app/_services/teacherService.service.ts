@@ -11,6 +11,11 @@ export class TeacherService {
 
     }
 
+    getAllTeacher(): Observable<any> {
+      return this.http.get(this.config.url_port + `/teacher/all-teacher`).pipe(map(
+        (data: any) => data = data ? data : []
+      ));
+    }
 
     getListSubjectOfTeacherEmailFromToken(page: number, size: number): Observable<any> {
         return this.http.get(this.config.url_port + `/teacher/subjects?page=${page}&size=${size}`).pipe(map((data: any) => {

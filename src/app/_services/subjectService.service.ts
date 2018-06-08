@@ -50,4 +50,11 @@ export class SubjectService {
       ));
     }
 
+    createSubject(subject: Subject): Observable<any> {
+      return this.http.post(this.config.url_port + `/subject/create`, {
+        subjectName: subject.subjectName,
+        departmentId: subject.departmentId,
+        teacherManagementId: subject.teacherManagementId
+      });
+    }
 }
