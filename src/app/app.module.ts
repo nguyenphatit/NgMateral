@@ -9,7 +9,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HeaderComponent, SlidebarComponent, HomeLayoutComponent, ChatComponent, NotifyCenterComponent } from './shared';
+import {
+  HeaderComponent,
+  SlidebarComponent,
+  HomeLayoutComponent,
+  ChatComponent,
+  NotifyCenterComponent,
+  NotifyMessageComponent
+} from './shared';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StartComponent } from './start/start.component';
@@ -34,9 +41,13 @@ import { DepartmentService } from './_services/department.service';
 import { FacultyService } from './_services/faculty.service';
 import { UploadAvatarComponent } from './views/home/them-giang-vien/upload.component';
 import { UploadFileService } from './_services/upload.service';
+import { CreateQuestion } from './_models/createQuestion';
+import { CreateQuestionService } from './_services/createQuestion.service';
+import { ChapterService } from './_services/chapter.service';
 
 const APP_COMPONENTS = [
   HeaderComponent,
+  NotifyMessageComponent,
   SlidebarComponent,
   ChatComponent
 ];
@@ -74,8 +85,10 @@ const APP_CONTAINERS = [
     SubjectService,
     ExamTestService,
     ExamTestDetailService,
+    CreateQuestionService,
     DepartmentService,
     FacultyService,
+    ChapterService,
     UploadFileService,
     NotifyCenterService,
     StructureTestDetailService,

@@ -3,6 +3,7 @@ import { ConfigValue } from './../_helpers/config-value';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class JobService {
@@ -48,5 +49,11 @@ export class JobService {
   }
   getJobsOfTeacher(page: Number, size: Number): Observable<any> {
     return this.http.get(this.config.url_port + `/job/teacher`);
-}
+  }
+
+  geJobByTeacherIdAndJobType(teacherId: number): Observable<any> {
+    return this.http.get(this.config.url_port + `/job/teacher/${teacherId}`).pipe(map(
+      (data: any) => data = data ? data : []
+    ));
+  }
 }

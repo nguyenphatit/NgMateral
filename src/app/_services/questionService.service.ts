@@ -41,4 +41,10 @@ export class QuestionService {
             answers: question.answers
         });
     }
+
+    getQuestionByTeacherId(teacherId: number): Observable<any> {
+      return this.http.get(this.config.url_port + `/question/teacher/${teacherId}`).pipe(map(
+        (data: any) => data = data ? data : []
+      ));
+    }
 }

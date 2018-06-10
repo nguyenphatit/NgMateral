@@ -11,7 +11,7 @@ const routes: Routes = [
     component: ChiTietComponent
   }, {
     path: '2/:subjectId',
-    component: TaoCauHoiComponent
+    redirectTo: 'soan-cau-hoi'
   }, {
     path: '1/:subjectId',
     component: TaoDeCuongComponent
