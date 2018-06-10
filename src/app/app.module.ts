@@ -37,7 +37,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HttpErrorFilter } from './_helpers/HttpErrorInterceptor';
 import { ExamTestService } from './_services/examtest.service';
 import { ExamTestDetailService } from './_services/examTestDetail.service';
-import { DepartmentService } from './_services/department.serive';
+import { DepartmentService } from './_services/department.service';
 import { FacultyService } from './_services/faculty.service';
 import { UploadAvatarComponent } from './views/home/them-giang-vien/upload.component';
 import { UploadFileService } from './_services/upload.service';
