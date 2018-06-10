@@ -86,6 +86,7 @@ export class TaoCauTrucComponent implements OnInit {
     console.log(this.addStructureModel);
     this.structureTestDetailService.addstructureTestDetail(this.addStructureModel).subscribe((data: any) => {
       this.notifyCenterService.sendNotifyCenter({ massage: data, status: 200, details: null });
+      this.loadData();
     });
   }
 }
