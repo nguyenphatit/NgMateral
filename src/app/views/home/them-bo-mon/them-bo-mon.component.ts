@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FacultyService } from '../../../_services/faculty.service';
 import { TeacherService } from '../../../_services/teacherService.service';
 import { NgForm } from '@angular/forms';
-import { DepartmentService } from '../../../_services/department.serive';
+import { DepartmentService } from '../../../_services/department.service';
 import { NotifyCenterService } from '../../../_services/notify-center.service';
 
 @Component({

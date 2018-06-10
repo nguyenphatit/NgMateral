@@ -64,4 +64,10 @@ export class TeacherService {
         departmentId: teacher.departmentId
       });
     }
+
+    getTeacherByDepartmentId(departmentId: number): Observable<any> {
+      return this.http.get(this.config.url_port + `/teacher/department/${departmentId}`).pipe(map(
+        (data: any) => data = data ? data : []
+      ));
+    }
 }
