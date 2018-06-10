@@ -14,7 +14,7 @@ export class UploadFileService {
   pushFileToStorage(file: File): Observable<HttpEvent<any>> {
     const formdata: FormData = new FormData();
     formdata.append('file', file);
-    console.log('formDat: ', formdata);
+    // console.log('formDat: ', formdata);
     const req = new HttpRequest('POST', this.config.url_port + '/teacher/upload', formdata, {
       headers: new HttpHeaders().set('Authorization', JSON.parse(localStorage.getItem('token'))),
       reportProgress: true,

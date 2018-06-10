@@ -12,7 +12,6 @@ import { NotifyCenterService } from '../../../_services/notify-center.service';
 export class ThemBoMonComponent implements OnInit {
   facultyModel: any;
   teacherModel: any;
-  departmentModel: any;
 
   constructor(
     private facultyService: FacultyService,
@@ -37,6 +36,7 @@ export class ThemBoMonComponent implements OnInit {
       this.teacherModel = data;
     });
   }
+
 
   onSubmit(f: NgForm) {
     this.departmentService.createDepartment(f.value).subscribe((data: any) => {

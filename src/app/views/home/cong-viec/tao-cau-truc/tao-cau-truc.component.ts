@@ -46,7 +46,7 @@ export class TaoCauTrucComponent implements OnInit {
     this.numberDifficultyQuestion = this.numberEasyQuestion = this.totalScore = 0;
     this.structureTestDetailService.getListStrucBySubjectId(this.subjectId).subscribe(data => {
       this.structureTestDetail = data;
-      // console.log(this.structureTestDetail);
+
       if (this.structureTestDetail) { this.strucTestId = this.structureTestDetail[0].structureTestId; }
       this.structureTestDetail.filter((x: StrucTestDetail) => x.levelId === 1).forEach((element2: StrucTestDetail) => {
         this.numberDifficultyQuestion += element2.numberOfQuestion;
@@ -68,9 +68,9 @@ export class TaoCauTrucComponent implements OnInit {
     const tmp = this.structureTestDetail.find(
       (item) => item.structureTestId === structureTestId && item.levelId === levelId && item.chapterId === chapterId
     );
-    console.log(tmp);
+    // console.log(tmp);
     this.structureTestDetailService.addstructureTestDetail(tmp).subscribe((data: any) => {
-      this.notifyCenterService.sendNotifyCenter({ massage: data, status: 200, details: null });
+      this.notifyCenterService.sendNotifyCenter({ massage: 'Success!', status: 200, details: null });
       this.loadData();
     });
   }
@@ -85,7 +85,7 @@ export class TaoCauTrucComponent implements OnInit {
     this.addStructureModel.totalScore = f.value.totalScore;
     console.log(this.addStructureModel);
     this.structureTestDetailService.addstructureTestDetail(this.addStructureModel).subscribe((data: any) => {
-      this.notifyCenterService.sendNotifyCenter({ massage: data, status: 200, details: null });
+      this.notifyCenterService.sendNotifyCenter({ massage: 'Sucess!', status: 200, details: null });
       this.loadData();
     });
   }

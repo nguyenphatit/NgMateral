@@ -45,7 +45,7 @@ export class TaoDeCuongComponent implements OnInit {
     this.addChapterModel.describe = f.value.describe;
     this.addChapterModel.subjectId = this.subjectId;
     this.subjectService.createChapter(this.addChapterModel).subscribe((data: any) => {
-      this.notifyCenterService.sendNotifyCenter({ massage: data, status: 200, details: null });
+      this.notifyCenterService.sendNotifyCenter({ massage: 'Success!', status: 200, details: null });
       this.loadData();
     });
   }

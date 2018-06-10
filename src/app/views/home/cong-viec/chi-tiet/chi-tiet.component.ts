@@ -45,7 +45,6 @@ export class ChiTietComponent implements OnInit {
       this.numberOfPage = data.numberOfPage;
       this.numberOfRecord = data.numberOfRecord;
       this.collectionPageIndex = new Array(this.numberOfPage).fill(0);
-      console.log(data);
     });
   }
   jobDetail(jobId: number) {
