@@ -2,7 +2,7 @@
 <nav class="sidebar" id="sidebar-page">
   <button class="close-sidebar m-2" mat-mini-fab color="warn" id="btn-closeSide" onclick="closeSide()"><i class="fas fa-times"></i></button>
   <div class="sidebar__header">
-    <img src="assets/images/cyberpop-zoe.jpg" class="rounded rounded-circle py-3" alt="">
+    <img [src]="teacher?.avatar" class="rounded rounded-circle py-3" alt="">
     <h5 *ngIf="isLogin">
       <a class="text-uppercase nameTeacher" href="">{{ teacher?teacher?.firstName: '...' }} {{ teacher?teacher?.lastName: '...' }}</a>
     </h5>
@@ -20,9 +20,9 @@
         </a>
       </li>
       <li>
-        <a href="" data-toggle="tooltip" data-placement="right" title="Thông tin cá nhân">
+        <a [routerLink]="['/cap-nhat-thong-tin/' + teacher?.teacherId]" data-toggle="tooltip" data-placement="right" title="Cập nhật thông tin">
           <i class="fas fa-user"></i>&nbsp;
-          <span class="description-slide">Thông tin cá nhân</span>
+          <span class="description-slide">Cập nhật thông tin</span>
         </a>
       </li>
 

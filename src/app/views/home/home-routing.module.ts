@@ -10,6 +10,7 @@ import { DuyetCongViecComponent } from './duyet-cong-viec/duyet-cong-viec.compon
 import { ChiTietCongViecComponent } from './chi-tiet-cong-viec/chi-tiet-cong-viec.component';
 import { SoanCauHoiComponent } from './soan-cau-hoi/soan-cau-hoi.component';
 import { DuyetCauHoiComponent } from './duyet-cau-hoi/duyet-cau-hoi.component';
+import { CapNhatThongTinComponent } from './cap-nhat-thong-tin/cap-nhat-thong-tin.component';
 
 const routes: Routes = [
   {
@@ -63,6 +64,9 @@ const routes: Routes = [
   }, {
     path: 'duyet-cau-hoi/:teacherId',
     component: DuyetCauHoiComponent
+  }, {
+    path: 'cap-nhat-thong-tin/:teacherId',
+    component: CapNhatThongTinComponent
   }, {
     path: '**',
     redirectTo: '/'

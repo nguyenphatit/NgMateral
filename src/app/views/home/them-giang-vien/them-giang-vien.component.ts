@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DepartmentService } from '../../../_services/department.serive';
+import { DepartmentService } from '../../../_services/department.service';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { TeacherService } from '../../../_services/teacherService.service';
 import { NotifyCenterService } from '../../../_services/notify-center.service';
@@ -14,6 +14,7 @@ export class ThemGiangVienComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   url_avatar: string;
+  url_avatar_default: 'https://drive.google.com/open?id=1eYDVkxYb6PkrRaMiR-hATtFBhE7I3f5M';
   submitted = false;
   userform: FormGroup;
   teacherModel: Teacher = new Teacher();
@@ -70,7 +71,7 @@ export class ThemGiangVienComponent implements OnInit {
     this.teacherModel.birthDay = f.value.birthDay;
     this.teacherModel.email = f.value.email;
     this.teacherModel.password = f.value.password;
-    this.teacherModel.avatar = (this.url_avatar) ? this.url_avatar : f.value.avatar;
+    this.teacherModel.avatar = (this.url_avatar) ? this.url_avatar : this.url_avatar_default;
     this.teacherModel.address = f.value.address;
     this.teacherModel.phoneNumber = f.value.phoneNumber;
     this.teacherModel.sex = f.value.sex;
