@@ -1,8 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { ConfigValue } from './../_helpers/config-value';
+import { Teacher } from '../_models';
+import { HttpRequest } from 'selenium-webdriver/http';
 
 @Injectable()
 export class TeacherService {
@@ -48,4 +50,18 @@ export class TeacherService {
         return this.http.get(this.config.url_port + `/subject/of-teacher`).pipe(map((data: any) => data ? data : []));
     }
 
+    createTeacher(teacher: Teacher): Observable<any> {
+      return this.http.post(this.config.url_port + `/teacher/create`, {
+        firstName: teacher.firstName,
+        lastName: teacher.lastName,
+        birthDay: teacher.birthDay,
+        email: teacher.email,
+        password: teacher.password,
+        avatar: teacher.avatar,
+        address: teacher.address,
+        phoneNumber: teacher.phoneNumber,
+        sex: teacher.sex,
+        departmentId: teacher.departmentId
+      });
+    }
 }
