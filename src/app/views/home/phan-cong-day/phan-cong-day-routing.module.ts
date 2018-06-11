@@ -9,10 +9,10 @@ const routes: Routes = [
     path: '',
     component: BoMonPhanCongComponent
   }, {
-    path: 'mon-hoc',
+    path: 'bo-mon/:departmentId',
     component: MonHocPhanCongComponent
   }, {
-    path: 'chi-tiet',
+    path: ':departmentId/mon-hoc/:subjectId',
     component: ChiTietMonHocComponent
   }, {
     path: '**',

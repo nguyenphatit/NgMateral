@@ -6,11 +6,11 @@ import { UploadFileService } from '../../../_services/upload.service';
 
 
 @Component({
-  selector: 'app-upload-avatar',
-  templateUrl: 'upload.component.html',
+  selector: 'app-change-avatar',
+  templateUrl: 'change-avt.component.html',
 })
 
-export class UploadAvatarComponent implements OnInit {
+export class ChangeAvatarComponent implements OnInit {
   public selectedFiles: FileList;
   currentFileUpload: File;
   public progress: { percentage: number } = { percentage: 0 };

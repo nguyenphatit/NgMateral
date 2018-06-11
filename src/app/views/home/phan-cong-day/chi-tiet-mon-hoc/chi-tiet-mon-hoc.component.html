@@ -2,27 +2,35 @@
   <h5 class="font-weight-bold">Danh sách giảng viên</h5>
   Khoa Công nghệ thông tin
   <div class="text-right">
-    <button mat-fab color="warn" data-toggle="modal" data-target="#modal-them-giang-vien">
+    <button mat-fab color="accent" data-toggle="modal" data-target="#modal-them-giang-vien">
       <i class="fas fa-plus"></i>
     </button>
   </div>
   <div class="mt-5">
     <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-5">
+      <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-5" *ngFor="let t of subjectModel?.teachers">
         <mat-card class="mat-card-sub">
           <mat-card-header class="card-header">
             <mat-card-title>
-              <h5>Trần Lê Như Quỳnh</h5>
+              <h5>{{t?.firstName}} {{t?.lastName}}</h5>
             </mat-card-title>
           </mat-card-header>
-          <img class="card-img-top" src="../assets/images/Sell-course-online.gif" class="img-card" alt="Card image cap">
+          <img class="card-img-top" [src]="t?.avatar" class="img-card" alt="Card image cap">
           <mat-card-content class="card-body">
             <span>Email:
-              <b>nhuquynhtranle@gmail.com</b>
+              <b>{{t?.email}}</b>
+            </span>
+            <br/>
+            <span>Số điện thoại:
+              <b>{{t?.phoneNumber}}</b>
+            </span>
+            <br/>
+            <span>Sinh nhật:
+              <b>{{t?.birthDay | date:'dd/MM/y'}}</b>
             </span>
           </mat-card-content>
           <mat-card-actions class="p-3">
-            <button href="#" mat-raised-button color="warn">Xóa</button>
+            <button href="#" mat-raised-button color="warn" (click)="deleteTeacherOfSubject(subjectModel?.subjectId, subjectModel?.teacherManagementId)">Xóa</button>
           </mat-card-actions>
         </mat-card>
       </div>
@@ -41,39 +49,21 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-5">
+          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-5" *ngFor="let d of teacherModel">
             <mat-card class="mat-card-sub">
               <mat-card-header class="card-header">
                 <mat-card-title>
-                  <h5>Trần Lê Như Quỳnh</h5>
+                  <h5>{{d?.firstName}} {{d?.lastName}}</h5>
                 </mat-card-title>
               </mat-card-header>
-              <img class="card-img-top" src="../assets/images/Sell-course-online.gif" class="img-card" alt="Card image cap">
+              <img class="card-img-top" [src]="d?.avatar" class="img-card" alt="Card image cap">
               <mat-card-content class="card-body">
                 <span>Email:
-                  <b>nhuquynhtranle@gmail.com</b>
+                  <b>{{d?.email}}</b>
                 </span>
               </mat-card-content>
               <mat-card-actions class="p-3">
-                <button href="#" mat-raised-button color="warn">Thêm</button>
-              </mat-card-actions>
-            </mat-card>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-5">
-            <mat-card class="mat-card-sub">
-              <mat-card-header class="card-header">
-                <mat-card-title>
-                  <h5>Trần Lê Như Quỳnh</h5>
-                </mat-card-title>
-              </mat-card-header>
-              <img class="card-img-top" src="../assets/images/Sell-course-online.gif" class="img-card" alt="Card image cap">
-              <mat-card-content class="card-body">
-                <span>Email:
-                  <b>nhuquynhtranle@gmail.com</b>
-                </span>
-              </mat-card-content>
-              <mat-card-actions class="p-3">
-                <button href="#" mat-raised-button color="warn">Thêm</button>
+                <button href="#" mat-raised-button color="primary" (click)="addTeacherIntoSubject(subjectModel, d?.teacherId)">Thêm</button>
               </mat-card-actions>
             </mat-card>
           </div>

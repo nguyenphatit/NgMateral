@@ -16,6 +16,8 @@ import { MaterialModule } from '../../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DuyetCauHoiComponent } from './duyet-cau-hoi/duyet-cau-hoi.component';
 import { UploadAvatarComponent } from './them-giang-vien/upload.component';
+import { CapNhatThongTinComponent } from './cap-nhat-thong-tin/cap-nhat-thong-tin.component';
+import { ChangeAvatarComponent } from './cap-nhat-thong-tin/change-avt.component';
 
 @NgModule({
   imports: [
@@ -37,7 +39,9 @@ import { UploadAvatarComponent } from './them-giang-vien/upload.component';
     DuyetCongViecComponent,
     DuyetCauHoiComponent,
     SoanCauHoiComponent,
-    UploadAvatarComponent
+    UploadAvatarComponent,
+    CapNhatThongTinComponent,
+    ChangeAvatarComponent
   ],
   providers: [
     {
