@@ -54,6 +54,7 @@ export class ChiTietMonHocComponent implements OnInit {
   addTeacherIntoSubject(subjectEvent: any, teacherId: number) {
     this.subjectAdd = subjectEvent;
     this.subjectAdd.teacherManagementId = teacherId;
+    console.log(this.subjectAdd);
     this.subjectService.createSubject(this.subjectAdd).subscribe((data: any) => {
       this.notifyCenterService.sendNotifyCenter({ massage: 'Sucess!', status: 200, details: null });
       this.loadTeacherOfSubject();

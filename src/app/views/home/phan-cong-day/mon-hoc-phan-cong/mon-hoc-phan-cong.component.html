@@ -11,15 +11,6 @@
             </mat-card-title>
           </mat-card-header>
           <img class="card-img-top" src="../assets/images/Sell-course-online.gif" class="img-card" alt="Card image cap">
-          <mat-card-content class="card-body">
-            <span>Giảng viên quản lý:
-              <b>{{s?.teacherManagement?.lastName}} {{s?.teacherManagement?.firstName}}</b>
-            </span>
-            <br/>
-            <span>Email:
-              <b>{{s?.teacherManagement?.email}}</b>
-            </span>
-          </mat-card-content>
           <mat-card-actions class="p-3">
             <button mat-raised-button color="primary" [routerLink]="['/phan-cong-day/' + departmentId +'/mon-hoc/' + s?.subjectId]">Chi tiết</button>
           </mat-card-actions>

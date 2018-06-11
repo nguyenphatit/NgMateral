@@ -8,29 +8,6 @@
   </div>
   <div class="mt-5">
     <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-5">
-        <mat-card class="mat-card-sub">
-          <mat-card-header class="card-header">
-            <mat-card-title>
-              <h5>{{subjectModel?.teacherManagement?.lastName}} {{subjectModel?.teacherManagement?.firstName}}</h5>
-            </mat-card-title>
-          </mat-card-header>
-          <img class="card-img-top" src="../assets/images/Sell-course-online.gif" class="img-card" alt="Card image cap">
-          <mat-card-content class="card-body">
-            <span>Email:
-              <b>{{subjectModel?.teacherManagement?.email}}</b>
-            </span>
-            <br/>
-            <span>Số điện thoại:
-              <b>{{subjectModel?.teacherManagement?.phoneNumber}}</b>
-            </span>
-            <br/>
-            <span>Sinh nhật:
-              <b>{{subjectModel?.teacherManagement?.birthDay | date:'dd/MM/y'}}</b>
-            </span>
-          </mat-card-content>
-        </mat-card>
-      </div>
       <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-5" *ngFor="let t of subjectModel?.teachers">
         <mat-card class="mat-card-sub">
           <mat-card-header class="card-header">
