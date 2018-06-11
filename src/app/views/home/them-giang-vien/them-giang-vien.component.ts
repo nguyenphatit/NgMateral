@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DepartmentService } from '../../../_services/department.serive';
+import { DepartmentService } from '../../../_services/department.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({

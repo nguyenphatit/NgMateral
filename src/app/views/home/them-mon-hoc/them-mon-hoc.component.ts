@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TeacherService } from '../../../_services/teacherService.service';
-import { DepartmentService } from '../../../_services/department.serive';
+import { DepartmentService } from '../../../_services/department.service';
 import { NgForm } from '@angular/forms';
 import { Subject, Teacher } from '../../../_models';
 import { NotifyCenterService } from '../../../_services/notify-center.service';
