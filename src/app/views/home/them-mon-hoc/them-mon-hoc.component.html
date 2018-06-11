@@ -27,20 +27,11 @@
                 <option *ngFor="let t of teacherModel" [value]="t.teacherId">{{t.firstName}} {{t.lastName}}</option>
               </select>
             </div>
-
-            <!-- <div class="form-group">
-              <label class="font-weight-bold" for="giangvienthem">Giảng viên giảng dạy (nếu có thêm)</label>
-              <select multiple class="form-control" ngModel name="teachers" id="giangvienthem">
-                <option *ngFor="let t of teacherModel" [value]="t.teacherManagementId">{{t.firstName}} {{t.lastName}}</option>
-              </select>
-            </div> -->
             <mat-card-actions class="text-right p-3 mr-3">
               <button type="submit" mat-raised-button color="primary">Xác nhận</button>
             </mat-card-actions>
           </form>
-
         </mat-card-content>
-
       </form>
     </mat-card>
   </div>
