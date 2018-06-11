@@ -1,19 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DepartmentService } from '../../../_services/department.service';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-=======
-=======
->>>>>>> cd7bace6429e9dc89ec6e7c878fa8ce69a6480cd
+
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { TeacherService } from '../../../_services/teacherService.service';
 import { NotifyCenterService } from '../../../_services/notify-center.service';
 import { Teacher } from '../../../_models';
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> cd7bace6429e9dc89ec6e7c878fa8ce69a6480cd
+
+
 
 @Component({
   templateUrl: 'them-giang-vien.component.html'
